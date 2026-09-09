@@ -1,0 +1,302 @@
+---
+/**
+ * Header / Nav
+ * - Transparent on hero, gains blur + shadow after scrolling past hero (200ms transition)
+ * - Nav text: primary-ink; active link: accent-sky underline
+ * - Logo: Fraunces for name, mono for qualifier
+ * - Mobile: hamburger drawer
+ */
+
+const navLinks = [
+  { href: '#about',    label: 'About' },
+  { href: '#services', label: 'Services' },
+  { href: '#videos',   label: 'Videos' },
+  { href: '#faq',      label: 'FAQ' },
+  { href: '#contact',  label: 'Contact' },
+];
+---
+
+<header id="site-header" role="banner">
+  <nav
+    id="nav-bar"
+    aria-label="Primary navigation"
+    class="nav-bar"
+  >
+    <div class="container-xl nav-inner">
+
+      <!-- Brand -->
+      <a href="#home" class="nav-brand" aria-label="CA Shweta Verma, go to top">
+        <span class="nav-brand-badge" aria-hidden="true">CA</span>
+        <span class="nav-brand-text">
+          <span class="nav-brand-name">Shweta Verma</span>
+          <span class="nav-brand-creds">FCA · DISA · FAFD</span>
+        </span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="nav-links desktop-nav" role="list">
+        {navLinks.map(({ href, label }) => (
+          <li>
+            <a href={href} class="nav-link">{label}</a>
+          </li>
+        ))}
+      </ul>
+
+      <!-- Desktop CTA + mobile hamburger -->
+      <div class="nav-actions">
+        <a
+          href="https://wa.me/918130573445?text=Hi%20CA%20Shweta%2C%20I%20would%20like%20to%20book%20a%20consultation."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-whatsapp nav-cta"
+          aria-label="Contact on WhatsApp"
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          </svg>
+          WhatsApp
+        </a>
+
+        <button
+          id="menu-toggle"
+          class="hamburger-btn"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Toggle navigation menu"
+          type="button"
+        >
+          <svg id="ham-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <rect y="3" width="20" height="2" rx="1"/>
+            <rect y="9" width="20" height="2" rx="1"/>
+            <rect y="15" width="20" height="2" rx="1"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div
+      id="mobile-menu"
+      role="navigation"
+      aria-label="Mobile navigation"
+      class="mobile-menu"
+    >
+      {navLinks.map(({ href, label }) => (
+        <a href={href} class="mobile-nav-link">{label}</a>
+      ))}
+      <a
+        href="https://wa.me/918130573445?text=Hi%20CA%20Shweta%2C%20I%20would%20like%20to%20book%20a%20consultation."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-whatsapp mobile-wa"
+        aria-label="Contact on WhatsApp"
+      >
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .nav-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    transition:
+      box-shadow 200ms ease,
+      border-color 200ms ease,
+      background-color 200ms ease;
+  }
+  .nav-bar.scrolled {
+    box-shadow: 0 2px 24px rgba(15,44,76,0.1);
+    border-bottom-color: var(--color-hairline);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    gap: 24px;
+  }
+
+  /* Brand */
+  .nav-brand {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .nav-brand-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--color-primary-ink);
+    border-radius: var(--radius-md);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0;
+    flex-shrink: 0;
+    font-optical-sizing: auto;
+  }
+  .nav-brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+  .nav-brand-name {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-primary-ink);
+    letter-spacing: -0.01em;
+    font-optical-sizing: auto;
+  }
+  .nav-brand-creds {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--color-primary-blue);
+    letter-spacing: 0.06em;
+    opacity: 0.7;
+  }
+
+  /* Desktop nav links */
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-link {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-primary-ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    opacity: 0.7;
+    transition: opacity 150ms ease, color 150ms ease;
+    /* Underline draw */
+    background-image: linear-gradient(var(--color-accent-sky), var(--color-accent-sky));
+    background-size: 0% 1.5px;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    padding-bottom: 2px;
+    transition: background-size 200ms ease, opacity 150ms ease;
+  }
+  .nav-link:hover {
+    opacity: 1;
+    background-size: 100% 1.5px;
+  }
+
+  /* Actions */
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .nav-cta {
+    font-size: 13px;
+    padding: 8px 16px;
+    min-height: 36px;
+    gap: 6px;
+  }
+
+  /* Hamburger */
+  .hamburger-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: 1.5px solid var(--color-hairline);
+    border-radius: var(--radius-sm);
+    padding: 6px 8px;
+    cursor: pointer;
+    color: var(--color-primary-ink);
+    line-height: 1;
+    transition: border-color 150ms ease;
+  }
+  .hamburger-btn:hover { border-color: var(--color-primary-blue); }
+
+  /* Mobile drawer */
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    border-top: 1px solid var(--color-hairline);
+    padding: 16px 24px 24px;
+    gap: 4px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-nav-link {
+    display: block;
+    padding: 10px 0;
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-primary-ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-hairline);
+    transition: color 150ms ease;
+  }
+  .mobile-nav-link:hover { color: var(--color-primary-blue); }
+  .mobile-wa {
+    margin-top: 16px;
+    justify-content: center;
+  }
+
+  /* Responsive */
+  @media (min-width: 768px) {
+    .hamburger-btn { display: none !important; }
+    .mobile-menu { display: none !important; }
+    .desktop-nav { display: flex !important; }
+  }
+  @media (max-width: 767px) {
+    .desktop-nav { display: none !important; }
+    .hamburger-btn { display: flex !important; }
+    .nav-cta { display: none; }
+  }
+</style>
+
+<script>
+  // Hamburger toggle
+  const toggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.contains('open');
+    mobileMenu?.classList.toggle('open', !isOpen);
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+  // Close on link click
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      toggle?.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Scroll: gain blur + shadow after passing hero
+  const navBar = document.getElementById('nav-bar');
+  const onScroll = () => {
+    navBar?.classList.toggle('scrolled', window.scrollY > 60);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll(); // run on load
+</script>

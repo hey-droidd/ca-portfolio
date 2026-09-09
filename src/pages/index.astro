@@ -1,11 +1,62 @@
 ---
-import Welcome from '../components/Welcome.astro';
+/**
+ * Page rhythm (background alternation):
+ *  Hero          - white
+ *  StatTicker    - primary-ink (band)
+ *  About         - primary-ink (full section)
+ *  Services      - white
+ *  DirectAccess  - primary-ink
+ *  Videos        - neutral-50 (off-white)
+ *  FAQ           - white
+ *  Contact       - primary-ink
+ *  Footer        - white
+ *
+ * No two consecutive sections share a background color or layout structure.
+ */
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import StatTicker from '../components/StatTicker.astro';
+import About from '../components/About.astro';
+import Services from '../components/Services.astro';
+import DirectAccess from '../components/DirectAccess.astro';
+import Videos from '../components/Videos.astro';
+import FAQ from '../components/FAQ.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout>
-	<Welcome />
+  <!-- Skip link - must be first focusable element -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <Header />
+
+  <main id="main-content">
+    <!-- 1. Hero - white, ledger texture, two-fragment positioning -->
+    <Hero />
+
+    <!-- 2. Stat Ticker - primary-ink band, accent-sky text, marquee -->
+    <StatTicker />
+
+    <!-- 3. About - primary-ink dark section, pull-quote, count-up stats -->
+    <About />
+
+    <!-- 4. Services - white, folio numbers, alternating layout -->
+    <Services />
+
+    <!-- 5. Direct Access - primary-ink, Fraunces statement, differentiator -->
+    <DirectAccess />
+
+    <!-- 6. Videos - neutral-50, horizontal scroll gallery, RSS feed -->
+    <Videos />
+
+    <!-- 7. FAQ - white, accordion, 6 real questions -->
+    <FAQ />
+
+    <!-- 8. Contact - primary-ink, split layout, form + channels -->
+    <Contact />
+  </main>
+
+  <Footer />
 </Layout>

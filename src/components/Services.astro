@@ -1,0 +1,305 @@
+---
+/**
+ * Services section - white background.
+ * All 7 services share ONE consistent Style A treatment:
+ * full-width rows, large watermark folio number, icon+label above heading.
+ * Service number in IBM Plex Mono (large, low-opacity folio number).
+ * Service name in Fraunces.
+ * Custom minimal line-icons - no generic Heroicons.
+ * Stagger-reveal on scroll.
+ */
+
+const services = [
+  {
+    id: 'income-tax',
+    no: '01',
+    category: 'Direct Tax',
+    title: 'Income Tax Filing & Planning',
+    description:
+      'Accurate return filing for individuals, salaried professionals, freelancers, and businesses. Proactive tax planning to optimise your liability: choosing the right regime, timing deductions, and structuring income correctly before year-end.',
+    featured: true,
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="4" y="3" width="20" height="22" rx="2"/>
+      <path d="M9 8h10M9 12h10M9 16h6"/>
+      <path d="M17 18l2 2 4-4" stroke-width="1.5"/>
+    </svg>`,
+  },
+  {
+    id: 'gst',
+    no: '02',
+    category: 'Indirect Tax',
+    title: 'GST Registration & Filing',
+    description:
+      'End-to-end GST compliance: registration (regular or composition), monthly/quarterly return filing (GSTR-1, GSTR-3B), annual return (GSTR-9), reconciliation, and ITC management. Advisory on GST applicability for new business models.',
+    featured: true,
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="14" cy="14" r="10"/>
+      <path d="M14 4v20M4 14h20"/>
+      <path d="M9 8.5C9 8.5 11 6 14 6s5 2.5 5 2.5M9 19.5C9 19.5 11 22 14 22s5-2.5 5-2.5"/>
+    </svg>`,
+  },
+  {
+    id: 'tds',
+    no: '03',
+    category: 'Withholding Tax',
+    title: 'TDS / TCS Compliance',
+    description:
+      'Correct deduction, timely deposit, and quarterly TDS return filing (24Q, 26Q, 27Q). Covers salary, professional payments, rent, and contractor deductions. Includes 26AS/AIS reconciliation and defaults resolution.',
+    featured: false,
+    icon: `<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M3 11h16M3 6h16M3 16h10"/>
+      <circle cx="17" cy="16" r="3"/>
+      <path d="M17 14v2l1 1"/>
+    </svg>`,
+  },
+  {
+    id: 'notices',
+    no: '04',
+    category: 'Representation',
+    title: 'Tax Notices & Representation',
+    description:
+      'Received a notice under Section 143(1), 148, or 156? Drafting responses, attending scrutiny assessments, filing appeals before CIT(A) and ITAT, and resolving demand notices, with clear communication at every stage.',
+    featured: false,
+    icon: `<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M11 2L3 6v6c0 5 4 8 8 9 4-1 8-4 8-9V6l-8-4z"/>
+      <path d="M8 11l2 2 4-4"/>
+    </svg>`,
+  },
+  {
+    id: 'registration',
+    no: '05',
+    category: 'Business Setup',
+    title: 'Business & Company Registration',
+    description:
+      'Incorporation of Private Limited companies, LLPs, partnerships, and sole proprietorships. Includes PAN/TAN applications, Professional Tax enrolment, MSME registration, and startup compliance structuring.',
+    featured: false,
+    icon: `<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="2" y="10" width="18" height="10" rx="1"/>
+      <path d="M6 10V7a5 5 0 0110 0v3"/>
+      <circle cx="11" cy="15" r="1.5"/>
+    </svg>`,
+  },
+  {
+    id: 'nri',
+    no: '06',
+    category: 'NRI & Cross-border',
+    title: 'NRI Taxation',
+    description:
+      'Residential status determination, FEMA compliance, taxation of foreign income, relief under DTAA, NRO/NRE account advisory, and return filing for NRIs with Indian income from property, interest, or capital gains.',
+    featured: false,
+    icon: `<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="9"/>
+      <path d="M2 11h18M11 2c-3 4-3 14 0 18M11 2c3 4 3 14 0 18"/>
+    </svg>`,
+  },
+  {
+    id: 'advisory',
+    no: '07',
+    category: 'Financial Services',
+    title: 'Financial Advisory',
+    description:
+      'Investment planning aligned with your tax position (ELSS, insurance, PPF, NPS), reviewed through the lens of your liability. Includes cash-flow reviews, financial statement preparation, and guidance on major financial decisions.',
+    featured: false,
+    icon: `<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="2,16 8,10 12,13 20,5"/>
+      <path d="M17 5h3v3"/>
+    </svg>`,
+  },
+];
+
+---
+
+<section
+  id="services"
+  class="section-pad"
+  style="background: #fff;"
+  aria-label="Services offered by CA Shweta Verma"
+>
+  <div class="container-xl">
+
+    <header class="reveal services-header">
+      <h2 class="section-heading services-title">
+        Everything your<br />compliance needs.
+      </h2>
+      <p class="services-lede">
+        Comprehensive CA services, from routine filings to complex
+        representations, delivered with thoroughness and transparency.
+      </p>
+    </header>
+
+    <!-- All services: one consistent Style A treatment - full-width rows,
+         large watermark folio number, icon+label above heading -->
+    <ol class="services-featured-list" role="list" aria-label="Services">
+      {services.map((s, i) => (
+        <li
+          class={`reveal reveal-d${Math.min(i + 1, 6)} services-featured-item`}
+          id={`service-${s.id}`}
+        >
+          <!-- Folio number - IBM Plex Mono, large, low-opacity -->
+          <span class="service-no folio-no" aria-hidden="true">{s.no}</span>
+
+          <div class="services-featured-body">
+            <div class="services-featured-meta">
+              <span class="service-icon-wrap" aria-hidden="true" set:html={s.icon} />
+              <span class="services-cat label-text">{s.category}</span>
+            </div>
+            <h3 class="services-featured-name font-display">{s.title}</h3>
+            <p class="services-featured-desc">{s.description}</p>
+            <a
+              href="#contact"
+              class="services-enquire underline-draw"
+              aria-label={`Enquire about ${s.title}`}
+            >
+              Enquire about this service →
+            </a>
+          </div>
+        </li>
+      ))}
+    </ol>
+
+  </div>
+</section>
+
+<style>
+  /* Section header */
+  .services-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 56px;
+  }
+  .services-title {
+    color: var(--color-primary-ink);
+    margin: 0;
+  }
+  .services-lede {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--color-neutral-600);
+    max-width: 360px;
+    margin: 0;
+  }
+
+  /* ── Style A items (all services) ── */
+  .services-featured-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .services-featured-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 48px 0;
+    border-top: 1px solid var(--color-hairline);
+    overflow: hidden;
+    transition: background-color 200ms ease;
+  }
+  .services-featured-item:hover {
+    background-color: rgba(15,44,76,0.015);
+  }
+  .services-featured-item:last-child {
+    border-bottom: 1px solid var(--color-hairline);
+  }
+
+  /* Folio number - absolute positioned as background detail, fully inside */
+  .folio-no {
+    position: absolute;
+    top: 8px;
+    right: 0;
+    font-size: clamp(80px, 10vw, 120px);
+    line-height: 1;
+    color: var(--color-primary-ink);
+    opacity: 0.04;
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .services-featured-body {
+    max-width: 760px;
+    min-width: 0;
+  }
+  .services-featured-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .service-icon-wrap {
+    color: var(--color-primary-blue);
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .services-featured-item .service-icon-wrap svg {
+    width: 28px;
+    height: 28px;
+  }
+  .services-cat {
+    color: var(--color-primary-blue);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+  .services-featured-name {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--color-primary-ink);
+    margin: 0 0 12px;
+    font-optical-sizing: auto;
+  }
+  .services-featured-desc {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--color-neutral-600);
+    margin: 0 0 16px;
+    max-width: 640px;
+  }
+
+  /* Enquire link - underline draws in from left (global .underline-draw) */
+  .services-enquire {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-primary-blue);
+    padding-bottom: 1px;
+  }
+
+  @media (max-width: 768px) {
+    .services-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .services-lede { max-width: none; }
+  }
+  @media (max-width: 600px) {
+    .services-featured-item { padding: 32px 0; }
+    .folio-no { font-size: 64px; }
+    .services-featured-name { font-size: clamp(22px, 6.5vw, 26px); overflow-wrap: break-word; }
+    .services-featured-desc { font-size: 15px; overflow-wrap: break-word; }
+  }
+  @media (max-width: 380px) {
+    .services-featured-item { padding: 28px 0; }
+    .folio-no { font-size: 52px; }
+    .services-featured-meta { gap: 8px; }
+    .services-featured-item .service-icon-wrap svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+</style>

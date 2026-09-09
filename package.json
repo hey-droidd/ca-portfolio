@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "ca-portfolio",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -12,9 +12,21 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.3.1"
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/sitemap": "^3.7.4",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.3.1",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^6.0.3",
+    "youtube-data-mcp-server": "^1.0.16"
   },
   "allowScripts": {
     "esbuild": true
-  }
+  },
+  "description": "```sh npm create astro@latest -- --template basics ```",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {}
 }

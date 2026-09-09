@@ -1,0 +1,214 @@
+---
+/**
+ * FAQ section - white background.
+ * Accordion of 6 real, commonly asked tax/GST questions.
+ * Fraunces for questions, Inter for answers.
+ * Smooth height-transition on expand (respects prefers-reduced-motion).
+ * Placed after Direct Access / before Contact.
+ */
+
+const faqs = [
+  {
+    id: 'tax-regime',
+    question: 'Which tax regime should I choose: old or new?',
+    answer: `It depends on your deductions. The new regime (default from FY 2023-24) offers lower slab rates but disallows most deductions like 80C, HRA, and home loan interest. The old regime makes sense if your total deductions exceed roughly ₹3.5–4 lakh. A quick calculation comparing your taxable income under both regimes, which I do for every client, will give you a clear answer. There is no one-size-fits-all; it varies by income level and life stage.`,
+  },
+  {
+    id: 'notice-143',
+    question: 'What happens if I receive a Section 143(1) notice?',
+    answer: `Section 143(1) is an intimation, not a full scrutiny. The Income Tax Department processes your return computationally and sends this if it finds a mismatch between your filed return and its own data (TDS, advance tax, Form 26AS). Most cases involve minor arithmetic adjustments or a demand for tax. You must respond within the specified time (usually 30 days) and either accept the adjustment, dispute it, or file a rectification. Ignoring it can lead to a demand becoming final. If you receive one, share it with me immediately - most 143(1) cases are resolved quickly.`,
+  },
+  {
+    id: 'below-exemption',
+    question: 'Do I need to file a return if my income is below the basic exemption limit?',
+    answer: `Not always, but often yes. Even if your income is below ₹2.5 lakh (₹3 lakh for senior citizens under new regime), you must file if: you have foreign assets or foreign income, you deposited more than ₹1 crore in savings accounts, you spent over ₹2 lakh on foreign travel, or your electricity bill exceeded ₹1 lakh. Also, filing is mandatory if you want to carry forward capital losses. And as a practical matter, a filed return is often required for visa applications, loan approvals, and government tenders.`,
+  },
+  {
+    id: 'gst-turnover',
+    question: 'When does my business need to register for GST?',
+    answer: `GST registration is mandatory once your aggregate turnover in a financial year exceeds ₹40 lakh for goods or ₹20 lakh for services (₹10 lakh for special category states). However, even below these limits, registration is compulsory if you sell interstate, run an e-commerce business, or fall under specific notified categories. Voluntary registration is also available if you want to claim input tax credit (ITC). Starting a new business? It's worth deciding early. Retrospective registration is more complicated.`,
+  },
+  {
+    id: 'itr-deadline',
+    question: 'What is the penalty for filing my ITR late?',
+    answer: `Under Section 234F, a late filing fee of ₹5,000 applies if you file after the due date but before 31 December of the assessment year. This reduces to ₹1,000 if your total income is below ₹5 lakh. Beyond 31 December, you must file a belated return (or an updated return under Section 139(8A) for up to 2 years, with an additional tax of 25–50% on the tax payable). Late filing also means you lose the ability to carry forward most losses (except house property losses). The ITR due date is 31 July for most individuals.`,
+  },
+  {
+    id: 'nri-taxation',
+    question: 'I am an NRI with rental income in India. Do I need to file a return?',
+    answer: `Yes. If your Indian-sourced income exceeds the basic exemption limit, you must file an ITR in India regardless of where you reside. Rental income from property in India is taxable for NRIs, with 30% TDS typically deducted by the tenant. You can claim deductions (30% standard deduction, municipal taxes, home loan interest) and may get relief under India's Double Taxation Avoidance Agreement (DTAA) with your country of residence. Filing also allows you to claim a TDS refund if excess tax was deducted. I handle NRI returns including FEMA compliance and DTAA benefit claims.`,
+  },
+];
+---
+
+<section
+  id="faq"
+  class="faq-section section-pad"
+  aria-label="Frequently asked questions"
+>
+  <div class="container-xl">
+
+    <header class="faq-header">
+      <div class="reveal">
+        <p class="label-text faq-eyebrow">Common questions</p>
+        <h2 class="section-heading faq-title">
+          Answers before<br />you even ask.
+        </h2>
+      </div>
+      <p class="reveal reveal-d1 faq-lede">
+        Real questions from real clients, on tax regimes, notices, deadlines,
+        and GST. If your question isn't here, just ask directly.
+      </p>
+    </header>
+
+    <div class="faq-list" role="list">
+      {faqs.map((faq, i) => (
+        <div
+          class={`reveal reveal-d${Math.min(i + 1, 5)} accordion-item`}
+          id={`faq-${faq.id}`}
+          role="listitem"
+        >
+          <button
+            class="accordion-trigger"
+            aria-expanded="false"
+            aria-controls={`faq-body-${faq.id}`}
+            id={`faq-btn-${faq.id}`}
+            type="button"
+          >
+            <span>{faq.question}</span>
+            <!-- Plus/times icon -->
+            <span class="acc-icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <line x1="6" y1="1" x2="6" y2="11"/>
+                <line x1="1" y1="6" x2="11" y2="6"/>
+              </svg>
+            </span>
+          </button>
+
+          <div
+            class="accordion-body"
+            id={`faq-body-${faq.id}`}
+            role="region"
+            aria-labelledby={`faq-btn-${faq.id}`}
+          >
+            <div class="accordion-body-inner">
+              {faq.answer}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Footer nudge -->
+    <p class="reveal faq-footer">
+      Have a different question?&ensp;
+      <a
+        href="#contact"
+        class="faq-contact-link underline-draw"
+        aria-label="Contact CA Shweta Verma with your question"
+      >Ask directly →</a>
+    </p>
+
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    background: #fff;
+  }
+
+  .faq-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: end;
+    margin-bottom: 56px;
+  }
+  .faq-eyebrow {
+    color: var(--color-primary-blue);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    margin: 0 0 14px;
+  }
+  .faq-title {
+    color: var(--color-primary-ink);
+    margin: 0;
+  }
+  .faq-lede {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--color-neutral-600);
+    margin: 0;
+    align-self: end;
+    padding-bottom: 4px;
+  }
+
+  .faq-list {
+    max-width: 860px;
+    margin-bottom: 40px;
+  }
+
+  /* accordion-item, accordion-trigger, accordion-body: global.css */
+
+  .faq-footer {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--color-neutral-600);
+    margin: 0;
+  }
+  .faq-contact-link {
+    font-weight: 500;
+    color: var(--color-primary-blue);
+  }
+
+  @media (max-width: 768px) {
+    .faq-header {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .accordion-trigger {
+      font-size: 16px;
+      padding: 20px 0;
+    }
+  }
+</style>
+
+<script>
+  /**
+   * FAQ accordion - smooth height transition via max-height trick.
+   * Opens one at a time (closes others on open).
+   * Respects prefers-reduced-motion (instant via CSS).
+   */
+  const items = document.querySelectorAll<HTMLElement>('.accordion-item');
+
+  items.forEach(item => {
+    const trigger = item.querySelector<HTMLButtonElement>('.accordion-trigger');
+    const body = item.querySelector<HTMLElement>('.accordion-body');
+    if (!trigger || !body) return;
+
+    trigger.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+
+      // Close all items
+      items.forEach(other => {
+        const otherTrigger = other.querySelector<HTMLButtonElement>('.accordion-trigger');
+        const otherBody = other.querySelector<HTMLElement>('.accordion-body');
+        other.classList.remove('open');
+        if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+        if (otherBody) otherBody.style.maxHeight = '0';
+      });
+
+      // If it wasn't open, open it
+      if (!isOpen) {
+        item.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
+        // Use scrollHeight for natural height
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    });
+  });
+</script>

@@ -1,0 +1,415 @@
+---
+/**
+ * About section - dark (primary-ink background), off-white section.
+ * Pull-quote in large Fraunces as visual centrepiece.
+ * Stats in IBM Plex Mono, count-up on scroll.
+ * Hairline ledger grid texture behind stats.
+ */
+
+const yearsPracticing = 12;
+
+const stats = [
+  { figure: yearsPracticing + '+', label: 'Years\nPractising', id: 'years', target: yearsPracticing, suffix: '+' },
+  { figure: '1000+',               label: 'ITRs\nFiled',        id: 'itrs',  target: 1000, suffix: '+' },
+  { figure: '500+',                label: 'GST\nRegistrations', id: 'gst',   target: 500, suffix: '+' },
+  { figure: '24K+',                 label: 'YouTube\nSubscribers', id: 'subs', target: 24000, suffix: '+' },
+];
+---
+
+<section
+  id="about"
+  class="about-section"
+  aria-label="About CA Shweta Verma"
+>
+  <div class="container-xl">
+
+    <!-- Pull-quote: large Fraunces, the visual centrepiece -->
+    <blockquote class="reveal about-pullquote">
+      <p class="pull-quote">
+        "Most tax anxiety comes from unclear guidance, not the law itself."
+      </p>
+      <footer class="about-pullquote-attr">
+        <span>- CA Shweta Verma, FCA</span>
+      </footer>
+    </blockquote>
+
+    <!-- Two-column: bio copy | stats panel -->
+    <div class="about-body">
+
+      <!-- Bio copy -->
+      <div class="about-copy-col">
+        <h2 class="reveal section-heading about-heading">
+          A practitioner who<br />explains, not just files.
+        </h2>
+
+        <div class="about-copy-stack">
+          <p class="reveal reveal-d1 about-para">
+            CA Shweta Verma is a Fellow Chartered Accountant (FCA) and member of the
+            Institute of Chartered Accountants of India (ICAI), with additional
+            certifications in Information Systems Audit (DISA) and Forensic
+            Accounting &amp; Fraud Detection (FAFD).
+          </p>
+          <p class="reveal reveal-d2 about-para">
+            Her practice focuses on Income Tax and GST for individuals, salaried
+            professionals, small businesses, and NRIs. She believes compliance
+            anxiety almost always comes from unclear guidance, and that the right
+            advisor turns a stressful notice or deadline into a resolved,
+            documented outcome.
+          </p>
+          <p class="reveal reveal-d3 about-para">
+            Beyond client work, she runs the YouTube channel
+            <a
+              href="https://www.youtube.com/@cashwetaverma"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="about-yt-link underline-draw"
+            >@cashwetaverma</a>
+            , tax law changes, GST circulars, and financial planning in plain
+            language, because an informed taxpayer makes better decisions.
+          </p>
+        </div>
+
+        <!-- Credentials inline row -->
+        <dl class="reveal reveal-d4 about-creds">
+          <div><dt>FCA</dt><dd>Fellow Chartered Accountant, ICAI</dd></div>
+          <div><dt>DISA</dt><dd>Diploma in Information Systems Audit</dd></div>
+          <div><dt>FAFD</dt><dd>Forensic Accounting &amp; Fraud Detection</dd></div>
+          <div><dt>B.Com</dt><dd>Bachelor of Commerce</dd></div>
+        </dl>
+      </div>
+
+      <!-- Stats panel - IBM Plex Mono oversized, count-up, ledger texture behind -->
+      <div class="about-stats-col ledger-texture">
+        <p class="about-stats-eyebrow label-text">Practice at a glance</p>
+        <dl class="about-stats-grid">
+          {stats.map((s, i) => (
+            <div class={`reveal reveal-d${i + 1} about-stat-item`}>
+              <dt
+                class="stat-figure about-stat-figure"
+                data-target={s.target}
+                data-suffix={s.suffix}
+                id={`stat-${s.id}`}
+              >
+                {s.figure}
+              </dt>
+              <dd class="about-stat-label">
+                {s.label.split('\n').map((line, li) => (
+                  <span>{line}{li < s.label.split('\n').length - 1 ? <br /> : ''}</span>
+                ))}
+              </dd>
+            </div>
+          ))}
+        </dl>
+
+        <a
+          href="https://www.youtube.com/@cashwetaverma"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="reveal about-channel"
+          aria-label="Visit CA Shweta Verma on YouTube"
+        >
+          <span class="about-channel-icon" aria-hidden="true">
+            <svg width="16" height="12" viewBox="0 0 18 14" fill="white" aria-hidden="true">
+              <path d="M17.624 2.187A2.25 2.25 0 0016.705.4C15.255 0 9 0 9 0S2.745 0 1.295.4a2.25 2.25 0 00-.92 1.787C0 3.488 0 7 0 7s0 3.512.376 4.813A2.25 2.25 0 001.295 13.6C2.745 14 9 14 9 14s6.255 0 7.705-.4a2.25 2.25 0 00.92-1.787C18 10.512 18 7 18 7s0-3.512-.376-4.813zM7.2 10V4l5.6 3-5.6 3z"/>
+            </svg>
+          </span>
+          <div>
+            <span class="about-channel-handle">@cashwetaverma</span>
+            <span class="about-channel-sub">Subscribe on YouTube →</span>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Dark section - primary-ink background */
+  .about-section {
+    background-color: var(--color-primary-ink);
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+
+  /* Pull-quote */
+  .about-pullquote {
+    margin: 0 0 80px;
+    padding: 0;
+    max-width: 900px;
+  }
+  .about-pullquote .pull-quote {
+    color: #fff;
+    margin: 0 0 20px;
+  }
+  .about-pullquote-attr {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.04em;
+  }
+
+  /* Body two-column */
+  .about-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  /* Bio copy */
+  .about-heading {
+    color: #fff;
+    margin: 0 0 32px;
+  }
+  .about-copy-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 36px;
+  }
+  .about-para {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.7);
+    margin: 0;
+  }
+  .about-yt-link {
+    color: var(--color-accent-sky);
+    font-weight: 500;
+  }
+
+  .about-creds {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin: 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .about-creds > div {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .about-creds > div:nth-child(odd) {
+    padding-right: 24px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .about-creds > div:nth-child(even) {
+    padding-left: 24px;
+  }
+  .about-creds dt {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-accent-sky);
+    margin-bottom: 4px;
+    letter-spacing: 0.05em;
+  }
+  .about-creds dd {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* Stats panel */
+  .about-stats-col {
+    border-radius: var(--radius-xl);
+    padding: 48px 40px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  /* Ledger texture inside dark panel - lighter lines */
+  .about-stats-col.ledger-texture::before {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 28px 28px;
+    border-radius: var(--radius-xl);
+  }
+
+  .about-stats-eyebrow {
+    color: rgba(255,255,255,0.65);
+    margin: 0 0 36px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+  }
+
+  .about-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin: 0 0 40px;
+  }
+
+  .about-stat-item {
+    padding: 28px 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .about-stat-item:nth-child(odd) {
+    padding-right: 24px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+  .about-stat-item:nth-child(even) {
+    padding-left: 24px;
+  }
+  .about-stat-item:nth-child(1),
+  .about-stat-item:nth-child(2) {
+    border-top: none;
+  }
+
+  .about-stat-figure {
+    /* stat-figure from global: IBM Plex Mono 700, oversized, accent-sky */
+    font-size: clamp(36px, 4.5vw, 56px);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .about-stat-label {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0;
+    display: block;
+  }
+
+  /* YouTube channel link */
+  .about-channel {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-decoration: none;
+    transition: opacity 150ms ease;
+  }
+  .about-channel:hover { opacity: 0.8; }
+  .about-channel-icon {
+    width: 36px;
+    height: 36px;
+    background: #FF0000;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .about-channel-handle {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 2px;
+  }
+  .about-channel-sub {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.45);
+  }
+
+  @media (max-width: 900px) {
+    .about-body { grid-template-columns: 1fr; gap: 56px; }
+    .about-pullquote { margin-bottom: 56px; }
+  }
+  @media (min-width: 601px) and (max-width: 900px) {
+    .about-stats-col { padding: 32px 28px; }
+    .about-stats-eyebrow { margin-bottom: 24px; }
+    .about-stats-grid { margin-bottom: 28px; }
+    .about-stat-item { padding: 20px 0; }
+    .about-channel { padding-top: 20px; }
+  }
+  @media (max-width: 600px) {
+    .about-section { padding-top: 64px; padding-bottom: 64px; }
+    .about-stats-col { padding: 32px 16px; }
+    .about-stats-grid { grid-template-columns: 1fr 1fr; }
+    .about-stat-item:nth-child(1),
+    .about-stat-item:nth-child(2) { border-top: none; }
+    .about-creds { grid-template-columns: 1fr; }
+    .about-creds > div:nth-child(odd) { padding-right: 0; border-right: none; }
+    .about-creds > div:nth-child(even) { padding-left: 0; }
+  }
+
+  @media (max-width: 360px) {
+    .about-stats-col {
+      /* Break out of container padding so card uses full screen width */
+      margin-left: -8px;
+      margin-right: -8px;
+      border-radius: var(--radius-lg);
+    }
+  }
+</style>
+
+<script>
+  /**
+   * Count-up animation for stat figures.
+   * Triggers on IntersectionObserver entry.
+   * Eases out over ~1.2s. Respects prefers-reduced-motion.
+   */
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function easeOutQuad(t: number): number {
+    return t * (2 - t);
+  }
+
+  function countUp(el: HTMLElement, target: number, suffix: string, duration: number) {
+    if (prefersReduced) {
+      el.textContent = target.toLocaleString('en-IN') + suffix;
+      return;
+    }
+    const start = performance.now();
+    const step = (now: number) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeOutQuad(progress);
+      const current = Math.floor(eased * target);
+      // Format large numbers
+      const formatted = target >= 1000
+        ? (current / 1000).toFixed(current < 1000 ? 0 : 1).replace(/\.0$/, '') + 'K'
+        : String(current);
+      el.textContent = formatted + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target as HTMLElement;
+      const target = Number(el.dataset.target ?? 0);
+      const suffix = el.dataset.suffix ?? '';
+      countUp(el, target, suffix, 1200);
+      observer.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll<HTMLElement>('[data-target]').forEach(el => {
+    observer.observe(el);
+  });
+
+  // General scroll reveal
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+  );
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>

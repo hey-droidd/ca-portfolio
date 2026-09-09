@@ -1,0 +1,266 @@
+---
+/**
+ * Contact section - primary-ink dark background.
+ * Split layout: enlarged Fraunces heading left,
+ * large statement + clean channel list right.
+ * Contact channels as plain list rows - not boxed cards.
+ */
+---
+
+<section
+  id="contact"
+  class="contact-section section-pad"
+  aria-label="Contact CA Shweta Verma"
+>
+  <div class="container-xl contact-inner">
+
+    <!-- LEFT: Heading -->
+    <div class="reveal contact-intro-col">
+      <p class="label-text contact-eyebrow">Get in touch</p>
+      <h2 class="section-heading contact-title">
+        Let's talk through<br />your situation.
+      </h2>
+      <p class="contact-sub">
+        Reach out directly. WhatsApp is the fastest way to get a response.
+      </p>
+    </div>
+
+    <!-- RIGHT: Statement + contact channels -->
+    <div class="contact-info-col">
+      <div class="reveal reveal-d1 contact-statement-wrap">
+        <p class="contact-statement font-display">
+          A conversation costs<br />nothing. Confusion does.
+        </p>
+        <p class="contact-statement-sub">
+          Every enquiry is handled personally. No call screening, no juniors.
+          Just a direct conversation about your situation.
+        </p>
+      </div>
+
+      <!-- Channel list - plain rows, no boxes -->
+      <div class="contact-channels">
+
+        <a
+          href="https://wa.me/918130573445?text=Hi%20CA%20Shweta%2C%20I%20have%20an%20enquiry."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="reveal reveal-d2 contact-row"
+          aria-label="Chat on WhatsApp: +91 81305 73445"
+        >
+          <div class="contact-row-left">
+            <!-- WhatsApp icon -->
+            <span class="contact-channel-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+              </svg>
+            </span>
+            <span class="contact-row-label">
+              WhatsApp
+              <em class="contact-fastest">fastest</em>
+            </span>
+          </div>
+          <span class="contact-row-value font-mono">+91 81305 73445</span>
+        </a>
+
+        <a
+          href="mailto:cashwetav0893@gmail.com"
+          class="reveal reveal-d3 contact-row"
+          aria-label="Email cashwetav0893@gmail.com"
+        >
+          <div class="contact-row-left">
+            <span class="contact-channel-icon" aria-hidden="true">
+              <svg width="18" height="14" viewBox="0 0 20 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="0.75" y="0.75" width="18.5" height="14.5" rx="2.25"/>
+                <path d="M1 1.5l9 7 9-7" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="contact-row-label">Email</span>
+          </div>
+          <span class="contact-row-value contact-email-val font-mono">cashwetav0893@gmail.com</span>
+        </a>
+
+        <a
+          href="tel:+918130573445"
+          class="reveal reveal-d4 contact-row"
+          aria-label="Call +91 81305 73445"
+        >
+          <div class="contact-row-left">
+            <span class="contact-channel-icon" aria-hidden="true">
+              <svg width="16" height="18" viewBox="0 0 16 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 2h4l2 5-2.5 1.5a11 11 0 005 5L12 11l5 2v4a2 2 0 01-2 2A16 16 0 012 2z" transform="scale(0.75) translate(1,1)"/>
+                <rect x="2" y="2" width="12" height="16" rx="2"/>
+                <circle cx="8" cy="16" r="1"/>
+              </svg>
+            </span>
+            <span class="contact-row-label">Call</span>
+          </div>
+          <span class="contact-row-value font-mono">+91 81305 73445</span>
+        </a>
+
+        <p class="reveal reveal-d5 contact-note">
+          WhatsApp queries answered within a few hours during business days.
+          Email within 1–2 business days.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    background-color: var(--color-primary-ink);
+  }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  /* Intro column */
+  .contact-eyebrow {
+    color: var(--color-accent-sky);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    margin: 0 0 16px;
+  }
+  .contact-title {
+    color: #fff;
+    margin: 0 0 16px;
+    font-size: clamp(34px, 4.2vw, 60px);
+    line-height: 1.05;
+    overflow-wrap: break-word;
+  }
+  .contact-sub {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.55);
+    margin: 0;
+    line-height: 1.65;
+    max-width: 420px;
+  }
+
+  /* Info column */
+  .contact-statement-wrap {
+    margin-bottom: 40px;
+  }
+  .contact-statement {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 2.2vw, 28px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #fff;
+    margin: 0 0 16px;
+    font-optical-sizing: auto;
+  }
+  .contact-statement-sub {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.5);
+    margin: 0;
+  }
+
+  /* Channel rows */
+  .contact-channels {
+    display: flex;
+    flex-direction: column;
+  }
+  .contact-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-decoration: none;
+    transition: opacity 150ms ease;
+  }
+  .contact-row:hover { opacity: 0.8; }
+  .contact-row:last-of-type { border-bottom: 1px solid rgba(255,255,255,0.1); }
+
+  .contact-row-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .contact-channel-icon {
+    color: rgba(255,255,255,0.45);
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .contact-row-label {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .contact-fastest {
+    font-style: normal;
+    font-size: 10px;
+    font-weight: 400;
+    background: rgba(63,184,232,0.15);
+    color: var(--color-accent-sky);
+    padding: 2px 7px;
+    border-radius: var(--radius-pill);
+    letter-spacing: 0.05em;
+  }
+  .contact-row-value {
+    font-family: var(--font-mono);
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: #fff;
+    text-align: right;
+  }
+  .contact-email-val {
+    font-size: 13px;
+    word-break: break-all;
+    text-align: right;
+  }
+  .contact-note {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.35);
+    margin: 20px 0 0;
+  }
+
+  @media (max-width: 1024px) {
+    .contact-inner {
+      gap: 48px;
+    }
+    .contact-title {
+      font-size: clamp(30px, 3.4vw, 44px);
+    }
+    .contact-row { gap: 12px; }
+    .contact-row-value { font-size: 15px; }
+    .contact-row-value:not(.contact-email-val) { white-space: nowrap; }
+  }
+  @media (max-width: 767px) {
+    .contact-inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .contact-title {
+      font-size: clamp(28px, 8vw, 34px);
+      line-height: 1.07;
+    }
+  }
+  @media (max-width: 600px) {
+    .contact-row-value { font-size: 14px; }
+  }
+</style>
+
