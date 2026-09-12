@@ -7,11 +7,29 @@
       "skillPath": "skills/accessibility/SKILL.md",
       "computedHash": "612f913bcb03f0787b103c848cd7664b676a9aaf31f25d3270cc69cf5caaab95"
     },
-    "frontend-design": {
-      "source": "vercel-labs/agent-eval",
+    "design-dna": {
+      "source": "zanwei/design-dna",
       "sourceType": "github",
-      "skillPath": "packages/playground/.agents/skills/frontend-design/SKILL.md",
-      "computedHash": "537c1df9d0c694ecf9139a911f9ad0bd111a7ebc173a55457568459e543fe75b"
+      "skillPath": "SKILL.md",
+      "computedHash": "241a98aa785985e55b966fb16312e84cc533574e3b14b981689d17ea867aa1cc"
+    },
+    "design-taste-frontend": {
+      "source": "leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/taste-skill/SKILL.md",
+      "computedHash": "6d838b246d0e35d0b53f4f23f98ba7a1dd561937e64f7d0c7553b0928e376c3e"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "89496d5dd00f4810205f351759594fc2742bf8eea85a2f2b2d1de59f4bd91576"
+    },
+    "scroll-craft": {
+      "source": "nateherkai/scroll-craft",
+      "sourceType": "github",
+      "skillPath": "plugins/nateherk-design/skills/scroll-craft/SKILL.md",
+      "computedHash": "1e4f06bd116544f8813af65de64c5dce84d2db4238ca437ed74ff17f533c1caf"
     },
     "seo": {
       "source": "addyosmani/web-quality-skills",

@@ -1,10 +1,10 @@
 ---
 /**
- * FAQ section - white background.
+ * FAQ — white background, between Recognition (indigo) and Contact (neutral-50).
  * Accordion of 6 real, commonly asked tax/GST questions.
- * Fraunces for questions, Inter for answers.
- * Smooth height-transition on expand (respects prefers-reduced-motion).
- * Placed after Direct Access / before Contact.
+ * Entries use the site-wide stagger system; accordion motion in global.css.
+ * FAQPage JSON-LD included for SEO.
+ * Placed after Recognition / before Contact.
  */
 
 const faqs = [
@@ -16,29 +16,39 @@ const faqs = [
   {
     id: 'notice-143',
     question: 'What happens if I receive a Section 143(1) notice?',
-    answer: `Section 143(1) is an intimation, not a full scrutiny. The Income Tax Department processes your return computationally and sends this if it finds a mismatch between your filed return and its own data (TDS, advance tax, Form 26AS). Most cases involve minor arithmetic adjustments or a demand for tax. You must respond within the specified time (usually 30 days) and either accept the adjustment, dispute it, or file a rectification. Ignoring it can lead to a demand becoming final. If you receive one, share it with me immediately - most 143(1) cases are resolved quickly.`,
+    answer: `Section 143(1) is an intimation, not a full scrutiny. The Income Tax Department processes your return computationally and sends this if it finds a mismatch between your filed return and its own data (TDS, advance tax, Form 26AS). Most cases involve minor arithmetic adjustments or a demand for tax. You must respond within the specified time (usually 30 days) and either accept the adjustment, dispute it, or file a rectification. Ignoring it can let a demand become final. If you receive one, share it with me immediately — most 143(1) cases are resolved quickly.`,
   },
   {
     id: 'below-exemption',
     question: 'Do I need to file a return if my income is below the basic exemption limit?',
-    answer: `Not always, but often yes. Even if your income is below ₹2.5 lakh (₹3 lakh for senior citizens under new regime), you must file if: you have foreign assets or foreign income, you deposited more than ₹1 crore in savings accounts, you spent over ₹2 lakh on foreign travel, or your electricity bill exceeded ₹1 lakh. Also, filing is mandatory if you want to carry forward capital losses. And as a practical matter, a filed return is often required for visa applications, loan approvals, and government tenders.`,
+    answer: `Not always, but often yes. Even if your income is below the basic exemption limit, you must file if: you hold foreign assets or earn foreign income, you deposited more than ₹1 crore in savings accounts, you spent over ₹2 lakh on foreign travel, or your electricity bill exceeded ₹1 lakh. Filing is also mandatory if you want to carry forward capital losses. And as a practical matter, a filed return is frequently required for visa applications, loan approvals, and government tenders.`,
   },
   {
     id: 'gst-turnover',
     question: 'When does my business need to register for GST?',
-    answer: `GST registration is mandatory once your aggregate turnover in a financial year exceeds ₹40 lakh for goods or ₹20 lakh for services (₹10 lakh for special category states). However, even below these limits, registration is compulsory if you sell interstate, run an e-commerce business, or fall under specific notified categories. Voluntary registration is also available if you want to claim input tax credit (ITC). Starting a new business? It's worth deciding early. Retrospective registration is more complicated.`,
+    answer: `GST registration is mandatory once your aggregate turnover in a financial year exceeds ₹40 lakh for goods or ₹20 lakh for services (₹10 lakh for special category states). Even below these limits, registration is compulsory if you sell interstate, run an e-commerce business, or fall under specific notified categories. Voluntary registration is also available if you want to claim input tax credit (ITC). Starting a new business in Vidarbha? It is worth deciding early — retrospective registration is more complicated.`,
   },
   {
     id: 'itr-deadline',
     question: 'What is the penalty for filing my ITR late?',
-    answer: `Under Section 234F, a late filing fee of ₹5,000 applies if you file after the due date but before 31 December of the assessment year. This reduces to ₹1,000 if your total income is below ₹5 lakh. Beyond 31 December, you must file a belated return (or an updated return under Section 139(8A) for up to 2 years, with an additional tax of 25–50% on the tax payable). Late filing also means you lose the ability to carry forward most losses (except house property losses). The ITR due date is 31 July for most individuals.`,
+    answer: `Under Section 234F, a late filing fee of ₹5,000 applies if you file after the due date but before 31 December of the assessment year. This reduces to ₹1,000 if your total income is below ₹5 lakh. Beyond 31 December, you must file a belated or updated return with additional tax. Late filing also means losing the ability to carry forward most losses. The ITR due date is 31 July for most individuals — I run a filing calendar for every client so nothing slips.`,
   },
   {
     id: 'nri-taxation',
     question: 'I am an NRI with rental income in India. Do I need to file a return?',
-    answer: `Yes. If your Indian-sourced income exceeds the basic exemption limit, you must file an ITR in India regardless of where you reside. Rental income from property in India is taxable for NRIs, with 30% TDS typically deducted by the tenant. You can claim deductions (30% standard deduction, municipal taxes, home loan interest) and may get relief under India's Double Taxation Avoidance Agreement (DTAA) with your country of residence. Filing also allows you to claim a TDS refund if excess tax was deducted. I handle NRI returns including FEMA compliance and DTAA benefit claims.`,
+    answer: `Yes. If your Indian-sourced income exceeds the basic exemption limit, you must file an ITR in India regardless of where you reside. Rental income from Indian property is taxable, with TDS typically deducted by the tenant. You can claim the 30% standard deduction, municipal taxes, and home loan interest, and may get relief under India's Double Taxation Avoidance Agreement (DTAA) with your country of residence. Filing also lets you claim a refund if excess TDS was deducted.`,
   },
 ];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
+};
 ---
 
 <section
@@ -49,22 +59,23 @@ const faqs = [
   <div class="container-xl">
 
     <header class="faq-header">
-      <div class="reveal">
-        <p class="label-text faq-eyebrow">Common questions</p>
-        <h2 class="section-heading faq-title">
+      <div>
+        <p class="label-text faq-eyebrow">FAQ · Straight answers</p>
+        <h2 class="section-heading reveal">
           Answers before<br />you even ask.
         </h2>
       </div>
-      <p class="reveal reveal-d1 faq-lede">
+      <p class="faq-lede">
         Real questions from real clients, on tax regimes, notices, deadlines,
         and GST. If your question isn't here, just ask directly.
       </p>
     </header>
 
-    <div class="faq-list" role="list">
-      {faqs.map((faq, i) => (
+    <div class="faq-list" role="list" data-stagger-group>
+      {faqs.map((faq) => (
         <div
-          class={`reveal reveal-d${Math.min(i + 1, 5)} accordion-item`}
+          class="accordion-item"
+          data-stagger-item
           id={`faq-${faq.id}`}
           role="listitem"
         >
@@ -76,11 +87,10 @@ const faqs = [
             type="button"
           >
             <span>{faq.question}</span>
-            <!-- Plus/times icon -->
+            <!-- Chevron icon -->
             <span class="acc-icon" aria-hidden="true">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                <line x1="6" y1="1" x2="6" y2="11"/>
-                <line x1="1" y1="6" x2="11" y2="6"/>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 4l4 4 4-4"/>
               </svg>
             </span>
           </button>
@@ -100,21 +110,23 @@ const faqs = [
     </div>
 
     <!-- Footer nudge -->
-    <p class="reveal faq-footer">
+    <p class="faq-footer">
       Have a different question?&ensp;
       <a
         href="#contact"
-        class="faq-contact-link underline-draw"
-        aria-label="Contact CA Shweta Verma with your question"
+        class="link-brass"
+        aria-label="Contact CA Shahid Raza Khan with your question"
       >Ask directly →</a>
     </p>
 
   </div>
 </section>
 
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
 <style>
   .faq-section {
-    background: #fff;
+    background: var(--color-canvas);
   }
 
   .faq-header {
@@ -125,23 +137,16 @@ const faqs = [
     margin-bottom: 56px;
   }
   .faq-eyebrow {
-    color: var(--color-primary-blue);
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    margin: 0 0 14px;
+    color: var(--color-accent-brass-dk);
+    margin: 0 0 16px;
+    display: block;
   }
-  .faq-title {
-    color: var(--color-primary-ink);
-    margin: 0;
-  }
+  .faq-header .section-heading { margin: 0; }
   .faq-lede {
-    font-family: var(--font-body);
-    font-size: 16px;
-    font-weight: 400;
+    font-size: var(--text-body);
     line-height: 1.65;
     color: var(--color-neutral-600);
     margin: 0;
-    align-self: end;
     padding-bottom: 4px;
   }
 
@@ -153,15 +158,10 @@ const faqs = [
   /* accordion-item, accordion-trigger, accordion-body: global.css */
 
   .faq-footer {
-    font-family: var(--font-body);
-    font-size: 15px;
-    font-weight: 400;
+    font-size: var(--text-body);
+    line-height: 1.65;
     color: var(--color-neutral-600);
     margin: 0;
-  }
-  .faq-contact-link {
-    font-weight: 500;
-    color: var(--color-primary-blue);
   }
 
   @media (max-width: 768px) {
@@ -179,7 +179,7 @@ const faqs = [
 
 <script>
   /**
-   * FAQ accordion - smooth height transition via max-height trick.
+   * FAQ accordion — smooth height transition via max-height.
    * Opens one at a time (closes others on open).
    * Respects prefers-reduced-motion (instant via CSS).
    */
@@ -199,7 +199,7 @@ const faqs = [
         const otherBody = other.querySelector<HTMLElement>('.accordion-body');
         other.classList.remove('open');
         if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
-        if (otherBody) otherBody.style.maxHeight = '0';
+        if (otherBody) otherBody.style.maxHeight = '';
       });
 
       // If it wasn't open, open it

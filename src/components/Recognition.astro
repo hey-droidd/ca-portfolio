@@ -1,0 +1,180 @@
+---
+/**
+ * RECOGNITION — dark indigo section.
+ * Clean vertical list: Space Mono date, Newsreader title, thin divider.
+ * No icons, no colored blocks, no empty cells.
+ * All 5 entries present with verified real content.
+ */
+const entries = [
+  {
+    year: '2017',
+    title: 'RERA Paper at ICAI Amravati Conference',
+    context:
+      'Presented research on the then-new Real Estate Regulation Act before the district chartered accountancy fraternity — an early signal of a practitioner who studies the law before the market catches up.',
+  },
+  {
+    year: '3 yrs',
+    title: 'MGNREGA Internal Auditor, Amravati & Yavatmal',
+    context:
+      'Three years as internal auditor for the rural employment guarantee scheme across two Vidarbha districts. Public money, audited to the standard it deserves.',
+  },
+  {
+    year: '10+',
+    title: 'Career-Guidance Lectures Across Vidarbha',
+    context:
+      'Invited lectures at colleges and schools across the region, guiding students toward the CA path and commerce careers. The profession, paid forward.',
+  },
+  {
+    year: '2022 →',
+    title: 'Mentor, CA Monk — 100+ CAs Guided',
+    context:
+      'Mentoring newly qualified chartered accountants on practice-building and professional growth since 2022. A hundred careers touched and counting.',
+  },
+  {
+    year: '×3',
+    title: "Teachers' Day Guest of Honor, Akola",
+    context:
+      'Honored guest for three consecutive years at the Akola Teachers\u2019 Day program — recognition from the educators themselves.',
+  },
+];
+---
+
+<section id="recognition" class="recognition-section section-pad" aria-label="Recognition and public service">
+  <div class="container-xl">
+
+    <div class="rec-layout">
+
+      <!-- Sticky intro col -->
+      <div class="rec-intro">
+        <p class="label-text rec-eyebrow">Recognition · A record of showing up</p>
+        <h2 class="section-heading on-dark reveal">
+          Credentials<br />earned in public.
+        </h2>
+        <p class="rec-lede">
+          Papers presented, districts audited, students guided, a hundred young
+          CAs mentored. This is the differentiator no marketing line can manufacture.
+        </p>
+        <a
+          href="https://linkedin.com/in/shahidrazakhan"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-secondary on-dark"
+          aria-label="Connect on LinkedIn"
+        >
+          Connect on LinkedIn
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Entry list -->
+      <ol class="rec-list" role="list" aria-label="Achievements and public roles" data-stagger-group>
+        {entries.map((e, i) => (
+          <li class="rec-entry" data-stagger-item>
+            {i > 0 && <div class="rec-divider" aria-hidden="true"></div>}
+            <div class="rec-entry-inner">
+              <span
+                class="rec-year reveal"
+                aria-label={`Year or period: ${e.year}`}
+              >
+                {e.year}
+              </span>
+              <div class="rec-content">
+                <h3 class="rec-title">{e.title}</h3>
+                <p class="rec-context">{e.context}</p>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .recognition-section { background: var(--color-primary-indigo); }
+
+  .rec-layout {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  /* Intro col */
+  .rec-eyebrow { color: var(--color-accent-brass-lt); margin: 0 0 20px; display: block; }
+  .rec-intro .section-heading { margin: 0 0 20px; }
+  .rec-lede {
+    font-size: var(--text-body);
+    line-height: 1.65;
+    color: var(--color-on-dark-muted);
+    margin: 0 0 32px;
+  }
+  .rec-intro { position: sticky; top: 100px; }
+
+  /* Entry list */
+  .rec-list { list-style: none; margin: 0; padding: 0; }
+  .rec-entry { margin: 0; }
+
+  .rec-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.10);
+    margin: 0;
+  }
+
+  .rec-entry-inner {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 24px;
+    padding: 40px 0;
+    align-items: start;
+  }
+
+  /* Space Mono date — same treatment as .stat-fig (family, weight,
+     spacing, color); compact size fits the date column */
+  .rec-year {
+    font-family: var(--font-mono);
+    font-size: clamp(26px, 2.8vw, 36px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--color-accent-brass-lt);
+    white-space: nowrap;
+    padding-top: 4px;
+    display: block;
+    font-feature-settings: "tnum";
+  }
+
+  /* Newsreader title */
+  .rec-title {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.2vw, 26px);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--color-on-dark);
+    margin: 0 0 10px;
+  }
+
+  .rec-context {
+    font-size: var(--text-body);
+    line-height: 1.65;
+    color: var(--color-on-dark-muted);
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .rec-layout { grid-template-columns: 1fr; gap: 48px; }
+    .rec-intro { position: static; }
+    .rec-lede { max-width: 560px; }
+  }
+  @media (max-width: 600px) {
+    .rec-entry-inner { grid-template-columns: 80px 1fr; gap: 16px; padding: 32px 0; }
+    .rec-year { font-size: 22px; }
+  }
+  @media (max-width: 360px) {
+    .rec-entry-inner { grid-template-columns: 1fr; gap: 8px; }
+  }
+</style>

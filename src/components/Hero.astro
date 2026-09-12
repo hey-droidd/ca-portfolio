@@ -1,89 +1,82 @@
 ---
+/**
+ * HERO — Copy left, portrait right (same structure as main branch).
+ * White background. Dominant Newsreader name. One positioning line.
+ * Two CTAs: brass primary + quiet WhatsApp companion link.
+ */
 import { Image } from 'astro:assets';
-import profilePhoto from '../assets/images/profile.png';
+import profilePhoto from '../assets/images/profile.jpg';
 ---
 
-<section
-  id="home"
-  class="hero ledger-texture"
-  aria-label="Introduction: CA Shweta Verma"
->
+<section id="home" class="hero" aria-label="CA Shahid Raza Khan — Chartered Accountant, Amravati">
   <div class="container-xl hero-inner">
 
     <!-- LEFT: Copy column -->
     <div class="hero-copy">
+    <p class="hero-eyebrow label-text he he-1">
+      Shahid Raza Khan &amp; Co&ensp;·&ensp;Chartered Accountants&ensp;·&ensp;Amravati
+    </p>
 
-      <!-- Eyebrow label -->
-      <p class="reveal hero-eyebrow label-text" aria-hidden="false">
-        Practicing Chartered Accountant · Fellow Member, ICAI
-      </p>
+    <h1 class="hero-name he he-2">
+      CA Shahid<br />Raza Khan
+    </h1>
 
-      <!-- Her name: Fraunces 900, hero scale - the visual anchor -->
-      <h1 class="reveal reveal-d1 hero-name">
-        CA&nbsp;Shweta<br />Verma
-      </h1>
+    <p class="hero-positioning he he-3">
+      International Knowledge. Local Care.
+    </p>
 
-      <!-- Two-fragment positioning statement -->
-      <!-- Fragment 1: appears with name -->
-      <p class="reveal reveal-d2 hero-frag hero-frag-1">
-        Clarity where tax law<br class="frag-br" /> creates confusion.
-      </p>
+    <p class="hero-sub he he-4">
+      Big Four audit rigour — earned at EY across Europe, the Middle East
+      and the Nordics — applied to businesses in Amravati and Vidarbha.
+    </p>
 
-      <!-- Visual beat: thin hairline + grid detail between fragments -->
-      <div class="reveal reveal-d3 hero-divider" aria-hidden="true">
-        <span class="hero-divider-line"></span>
-        <span class="hero-divider-dot"></span>
-        <span class="hero-divider-line"></span>
-      </div>
+    <nav class="hero-ctas he he-5" aria-label="Primary actions">
+      <a
+        href="https://wa.me/918087128040?text=Hi%20CA%20Shahid%2C%20I%20would%20like%20to%20book%20a%20consultation."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary"
+        aria-label="Book a consultation via WhatsApp"
+      >
+        Book a Consultation
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <a
+        href="https://wa.me/918087128040?text=Hi%20CA%20Shahid%2C%20I%20have%20a%20quick%20question."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-secondary"
+        aria-label="Message on WhatsApp"
+      >
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+        WhatsApp
+      </a>
+    </nav>
 
-      <!-- Fragment 2: secondary beat, slightly lower weight -->
-      <p class="reveal reveal-d3 hero-frag hero-frag-2">
-        Income Tax · GST · Financial Services
-      </p>
+    <p class="hero-creds label-text he he-6">
+      EY Alumni&ensp;·&ensp;Europe&ensp;·&ensp;Middle East&ensp;·&ensp;Nordics&ensp;·&ensp;6+ Years&ensp;·&ensp;500+ Clients
+    </p>
 
-      <!-- CTAs -->
-      <div class="reveal reveal-d4 hero-ctas">
-        <a
-          href="https://wa.me/918130573445?text=Hi%20CA%20Shweta%2C%20I%20would%20like%20to%20book%20a%20consultation."
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-primary"
-          aria-label="Book a consultation via WhatsApp"
-        >
-          Book a Consultation
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-        <a
-          href="#videos"
-          class="btn-outline"
-          aria-label="Watch CA Shweta Verma's YouTube videos"
-        >
-          Watch Videos
-        </a>
-      </div>
-
-      <!-- Credentials row -->
-      <p class="reveal reveal-d5 hero-creds">
-        B.Com&ensp;·&ensp;FCA&ensp;·&ensp;DISA&ensp;·&ensp;FAFD
-      </p>
-    </div>
+    </div><!-- /.hero-copy -->
 
     <!-- RIGHT: Portrait column -->
-    <div class="reveal reveal-d2 hero-photo-col" aria-hidden="true">
+    <div class="hero-photo-col he he-3">
       <figure class="hero-photo">
         <div class="hero-photo-wrap">
           <Image
             src={profilePhoto}
-            alt="CA Shweta Verma, Practicing Chartered Accountant"
+            alt="CA Shahid Raza Khan, Chartered Accountant"
             loading="eager"
             fetchpriority="high"
             widths={[320, 460, 720]}
-            sizes="(max-width: 768px) 320px, (max-width: 1024px) 380px, 460px"
+            sizes="(max-width: 767px) 320px, (max-width: 1023px) 380px, 460px"
           />
         </div>
-        <!-- Subtle duotone overlay in primary-ink -->
+        <!-- Subtle duotone overlay in primary-indigo -->
         <span class="hero-photo-overlay" aria-hidden="true"></span>
       </figure>
     </div>
@@ -93,26 +86,31 @@ import profilePhoto from '../assets/images/profile.png';
 
 <style>
   .hero {
-    background-color: #fff;
-    padding-top: 148px;
+    position: relative;
+    background: var(--color-canvas);
+    padding-top: 160px;
     padding-bottom: 96px;
-    /* Cap total height so photo never bleeds past viewport fold */
-    min-height: 0;
-    max-height: 100vh;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
+    overflow: clip;
   }
 
-  /* Ledger grid should be even subtler in the white hero */
-  .hero.ledger-texture::before {
+  /* Signature texture: fine 1px indigo grid at 5% — reads as
+     texture, not pattern; fades out toward the section base */
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
     background-image:
-      linear-gradient(rgba(15,44,76,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(15,44,76,0.04) 1px, transparent 1px);
-    background-size: 40px 40px;
+      linear-gradient(rgba(61, 58, 92, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(61, 58, 92, 0.05) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
   }
 
   .hero-inner {
+    position: relative;
+    z-index: 1;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 0.85fr;
@@ -120,95 +118,78 @@ import profilePhoto from '../assets/images/profile.png';
     align-items: center;
   }
 
-  /* ── Eyebrow ── */
+  /* Eyebrow and creds must span both columns at all widths */
+  .hero-eyebrow,
+  .hero-creds {
+    grid-column: 1 / -1;
+  }
+
+  /* ── Load entrance — staged fade-up, same calm ease as scroll reveals.
+         Quiet delays (70ms steps); instant under reduced-motion. ── */
+  @keyframes hero-enter {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: none; }
+  }
+  .he {
+    opacity: 0;
+    animation: hero-enter 450ms var(--ease-out) forwards;
+  }
+  .he-1 { animation-delay: 60ms; }
+  .he-2 { animation-delay: 130ms; }
+  .he-3 { animation-delay: 200ms; }
+  .he-4 { animation-delay: 270ms; }
+  .he-5 { animation-delay: 340ms; }
+  .he-6 { animation-delay: 410ms; }
+
   .hero-eyebrow {
-    color: var(--color-primary-blue);
-    margin: 0 0 20px;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  /* ── Name: defined in global.css as .hero-name ── */
-  h1.hero-name {
+    color: var(--color-secondary-mauve);
     margin: 0 0 28px;
-    color: var(--color-primary-ink);
+    display: block;
   }
 
-  /* Copy column is the container for cqw font scaling */
-  .hero-copy {
-    container-type: inline-size;
+  /* Dominant scale — single large typographic moment */
+  .hero-name {
+    margin: 0 0 28px;
   }
 
-  /* ── Two-fragment positioning ── */
-  .hero-frag {
-    margin: 0;
-    font-family: var(--font-body);
-    line-height: 1.35;
-  }
-
-  .hero-frag-1 {
-    font-size: clamp(22px, 2.6vw, 30px);
+  .hero-positioning {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.4vw, 28px);
     font-weight: 500;
-    color: var(--color-primary-ink);
+    font-style: italic;
+    line-height: 1.3;
     letter-spacing: -0.01em;
+    color: var(--color-accent-brass-dk);
+    margin: 0 0 24px;
   }
 
-  /* Visual beat between fragments */
-  .hero-divider {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 18px 0;
-    max-width: 200px;
-  }
-  .hero-divider-line {
-    flex: 1;
-    height: 1px;
-    background: var(--color-primary-blue);
-    opacity: 0.4;
-  }
-  .hero-divider-dot {
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: var(--color-accent-sky);
-    flex-shrink: 0;
+  .hero-sub {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--color-neutral-600);
+    margin: 0 0 40px;
+    max-width: 580px;
   }
 
-  .hero-frag-2 {
-    font-size: clamp(14px, 1.5vw, 17px);
-    font-weight: 400;
-    color: var(--color-primary-blue);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    margin-bottom: 36px;
-  }
-
-  /* ── CTAs ── */
   .hero-ctas {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
     align-items: center;
-    margin-bottom: 36px;
+    margin-bottom: 48px;
   }
 
-  /* ── Credentials ── */
   .hero-creds {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0.08em;
-    color: var(--color-primary-blue);
+    color: var(--color-secondary-mauve);
     opacity: 0.7;
     margin: 0;
-    padding-top: 24px;
+    padding-top: 28px;
     border-top: 1px solid var(--color-hairline);
-    max-width: 440px;
+    display: block;
   }
 
-  /* ── Portrait ── */
+  /* ── Portrait (same treatment as main branch, indigo tokens) ── */
   .hero-photo-col {
     display: flex;
     justify-content: flex-end;
@@ -220,25 +201,13 @@ import profilePhoto from '../assets/images/profile.png';
     width: 100%;
     max-width: 460px;
     aspect-ratio: 4 / 5;
-    /* Never taller than viewport minus nav + section padding */
     max-height: calc(100vh - 260px);
-    border-radius: 4px 64px 4px 64px; /* asymmetric - editorial feel */
+    border-radius: 4px 64px 4px 64px; /* asymmetric — editorial feel */
     overflow: hidden;
-    background: linear-gradient(135deg, #C8DBE9 0%, #8AB4CE 100%);
+    background: linear-gradient(135deg, #D9CFAE 0%, #B08D57 100%);
     box-shadow: var(--shadow-2);
   }
 
-  .hero-photo img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-    display: block;
-  }
-
-  /* hero-photo-wrap: brand-tint overlay container */
   .hero-photo-wrap {
     position: absolute;
     inset: 0;
@@ -250,114 +219,96 @@ import profilePhoto from '../assets/images/profile.png';
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top center;
+    object-position: center;
+    filter: brightness(1.06);
   }
 
   .hero-photo-wrap::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(160deg, #0F2C4C 0%, transparent 60%);
+    background: linear-gradient(160deg, #3D3A5C 0%, transparent 60%);
     mix-blend-mode: multiply;
-    opacity: 0.15;
+    opacity: 0.06;
     pointer-events: none;
   }
 
-  /* Subtle duotone overlay - primary-ink tint at low opacity */
+  /* Subtle duotone overlay — primary-indigo tint at low opacity */
   .hero-photo-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
       160deg,
-      rgba(15, 44, 76, 0.12) 0%,
-      rgba(15, 44, 76, 0.04) 50%,
+      rgba(61, 58, 92, 0.05) 0%,
+      rgba(61, 58, 92, 0.02) 50%,
       transparent 100%
     );
     mix-blend-mode: multiply;
     pointer-events: none;
   }
 
-  /* ── Responsive ── */
-  /* ── Tablet: side-by-side, scaled down ── */
-  @media (min-width: 768px) and (max-width: 1024px) {
+  /* ── Tablet: portrait on top, full-width copy below — side-by-side
+         squeezes copy (wrapped eyebrow, stacked CTAs) and a bottom-
+         stacked photo reads as detached from the hero ── */
+  /* ── Tablet: side-by-side like laptop, photo column narrower so
+         copy keeps room (no wrapped eyebrow, CTAs stay inline) ── */
+  @media (min-width: 768px) and (max-width: 1023px) {
     .hero-inner {
-      grid-template-columns: 1fr 0.67fr;
-      gap: 40px;
+      grid-template-columns: 1fr 0.7fr;
+      gap: 40px 28px;
+      align-items: start;
+    }
+    .hero-copy {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    .hero-photo-col {
+      grid-column: 2;
+      grid-row: 2;
     }
     .hero-photo {
       max-width: 100%;
+      margin-top: 50px;
+      margin-bottom: 32px;
+    }
+    .hero-eyebrow {
+      grid-row: 1;
+      letter-spacing: 0.06em;
+    }
+    .hero-creds {
+      grid-row: 3;
     }
   }
 
-  /* ── Mobile: stacked, photo capped, text centered ── */
+  /* ── Mobile and below: text-only hero (portrait hidden) ── */
+  @media (max-width: 767px) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+    }
+    .hero-photo-col {
+      display: none;
+    }
+  }
+
+  /* ── Mobile spacing ── */
   @media (max-width: 767px) {
     .hero {
-      padding-top: 112px;
+      padding-top: 120px;
       padding-bottom: 64px;
-      min-height: 0;
     }
     .hero-inner {
       grid-template-columns: 1fr;
-      gap: 32px;
+      gap: 48px;
     }
-    .hero-copy {
-      text-align: center;
-    }
-    .hero-eyebrow,
-    .hero-frag-1,
-    .hero-frag-2,
-    .hero-creds {
-      text-align: center;
-    }
-    .hero-divider {
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .hero-ctas {
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-    }
-    .hero-creds {
-      max-width: none;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    /* Photo goes above copy, height-capped */
-    .hero-photo-col {
-      order: -1;
-      justify-content: center;
-    }
-    .hero-photo {
-      max-width: 100%;
-      max-height: 55vh;
-      aspect-ratio: unset;
-      width: 100%;
-    }
-    .frag-br { display: none; }
+    .hero-sub { font-size: 16px; }
   }
 
-  /* ── Very small screens (≤360px) ── */
-  @media (max-width: 360px) {
-    .hero {
-      padding-top: 96px;
-      padding-bottom: 48px;
-    }
-    .hero-inner {
-      gap: 24px;
-    }
-    .hero-photo {
-      max-height: 45vh;
-    }
-    .hero-eyebrow {
-      font-size: 10px;
-    }
-    .hero-frag-1 {
-      font-size: 18px;
-    }
-    .hero-ctas {
-      flex-direction: column;
-      align-items: center;
-    }
+  @media (max-width: 480px) {
+    .hero { padding-top: 100px; }
+    .hero-ctas { flex-direction: column; align-items: flex-start; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .he { opacity: 1; animation: none; }
   }
 </style>

@@ -1,0 +1,6 @@
+{
+  // @theme / @utility are valid Tailwind v4 at-rules — not unknown
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
+  "less.lint.unknownAtRules": "ignore"
+}

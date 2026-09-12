@@ -1,300 +1,157 @@
 ---
 /**
- * Footer - white background with primary-ink text.
- * 4-column grid: brand + 3 nav columns.
- * Disclaimer row at bottom.
+ * FOOTER — primary-indigo background.
+ * Stripe footer-light structure: 64px 24px padding, 4–6 link columns, legal row.
+ * Tokens: indigo/brass — no Stripe blue anywhere.
  */
-const currentYear = new Date().getFullYear();
+const year = new Date().getFullYear();
 
-interface FooterLink {
-  label: string;
-  href: string;
-  external?: boolean;
-}
-
-interface FooterCol {
-  heading: string;
-  links: FooterLink[];
-}
-
-const footerNav: FooterCol[] = [
+const navCols = [
   {
     heading: 'Services',
     links: [
-      { label: 'Income Tax', href: '#services' },
-      { label: 'GST Compliance', href: '#services' },
-      { label: 'TDS / TCS', href: '#services' },
-      { label: 'Tax Notices', href: '#services' },
-      { label: 'NRI Taxation', href: '#services' },
-      { label: 'Business Setup', href: '#services' },
+      { label: 'Audit & Assurance',     href: '#services' },
+      { label: 'Regulatory Compliance', href: '#services' },
+      { label: 'Financial Advisory',    href: '#services' },
     ],
   },
   {
-    heading: 'Quick Links',
+    heading: 'Firm',
     links: [
-      { label: 'About', href: '#about' },
-      { label: 'Videos', href: '#videos' },
-      { label: 'FAQ', href: '#faq' },
-      { label: 'Contact', href: '#contact' },
-      { label: 'Disclaimer', href: '#disclaimer' },
+      { label: 'About',       href: '#about' },
+      { label: 'Industries',  href: '#industries' },
+      { label: 'Recognition', href: '#recognition' },
+      { label: 'FAQ',         href: '#faq' },
+      { label: 'Contact',     href: '#contact' },
     ],
   },
 ];
 ---
 
-<footer
-  id="footer"
-  role="contentinfo"
-  class="footer"
->
-  <div class="container-xl">
+<footer id="footer" role="contentinfo" class="footer">
+  <div class="container-xl footer-body">
 
     <div class="footer-top">
 
-      <!-- Brand column -->
+      <!-- Brand col -->
       <div class="footer-brand-col">
-        <a href="#home" class="footer-brand" aria-label="CA Shweta Verma, go to top">
-          <span class="footer-brand-badge" aria-hidden="true">CA</span>
-          <span class="footer-brand-name font-display">Shweta Verma</span>
+        <a href="#home" class="footer-brand" aria-label="Shahid Raza Khan & Co — go to top">
+          <span class="footer-badge" aria-hidden="true">SRK</span>
+          <span class="footer-brand-name">Shahid Raza Khan &amp; Co</span>
         </a>
-        <p class="footer-brand-tagline">
-          Practicing Chartered Accountant · B.Com · FCA · DISA · FAFD.<br />
-          Helping individuals &amp; businesses navigate Income Tax &amp; GST with clarity.
+        <p class="footer-tagline">
+          International Knowledge. Local Care.<br />
+          Chartered Accountants, Amravati.
+        </p>
+        <p class="footer-address">
+          Shop No 101, First Floor, Beside Indane Gas Pump,<br />
+          Dharam Kata, Walgaon Road, Amravati 444601 (M.S.)
         </p>
 
-        <!-- Social icons -->
         <div class="footer-social" aria-label="Social links">
-          <a
-            href="https://www.youtube.com/@cashwetaverma"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="CA Shweta Verma on YouTube"
-            class="footer-social-icon"
-          >
-            <svg width="16" height="12" viewBox="0 0 18 14" fill="currentColor" aria-hidden="true">
-              <path d="M17.624 2.187A2.25 2.25 0 0016.705.4C15.255 0 9 0 9 0S2.745 0 1.295.4a2.25 2.25 0 00-.92 1.787C0 3.488 0 7 0 7s0 3.512.376 4.813A2.25 2.25 0 001.295 13.6C2.745 14 9 14 9 14s6.255 0 7.705-.4a2.25 2.25 0 00.92-1.787C18 10.512 18 7 18 7s0-3.512-.376-4.813zM7.2 10V4l5.6 3-5.6 3z"/>
-            </svg>
+          <a href="https://wa.me/918087128040" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="footer-social-icon">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
           </a>
-          <a
-            href="https://wa.me/918130573445"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="CA Shweta Verma on WhatsApp"
-            class="footer-social-icon"
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-            </svg>
+          <a href="mailto:cashahidraza@gmail.com" aria-label="Email" class="footer-social-icon">
+            <svg width="16" height="12" viewBox="0 0 22 17" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="0.75" y="0.75" width="20.5" height="15.5" rx="2"/><path d="M1 2l10 8 10-8" stroke-linecap="round"/></svg>
           </a>
-          <a
-            href="mailto:cashwetav0893@gmail.com"
-            aria-label="Email CA Shweta Verma"
-            class="footer-social-icon"
-          >
-            <svg width="16" height="13" viewBox="0 0 20 16" fill="none" aria-hidden="true">
-              <rect x="0.5" y="0.5" width="19" height="15" rx="2.5" stroke="currentColor" stroke-width="1.2"/>
-              <path d="M1 1.5l9 8 9-8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-            </svg>
+          <a href="https://linkedin.com/in/shahidrazakhan" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="footer-social-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
           </a>
-          <a
-            href="https://t.me/cashwetaverma"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="CA Shweta Verma on Telegram"
-            class="footer-social-icon"
-          >
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="22" y1="2" x2="11" y2="13"/>
-              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-            </svg>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/ca-shweta-verma-987514115"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="CA Shweta Verma on LinkedIn"
-            class="footer-social-icon"
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
-            </svg>
+          <a href="https://www.instagram.com/ca_shahid_raza_khan" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="footer-social-icon">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/></svg>
           </a>
         </div>
       </div>
 
-      <!-- Nav columns -->
-      {footerNav.map(col => (
+      <!-- Nav cols -->
+      {navCols.map(col => (
         <div class="footer-nav-col">
           <h3 class="footer-col-heading label-text">{col.heading}</h3>
           <ul role="list" class="footer-link-list">
             {col.links.map(link => (
-              <li>
-                <a
-                  href={link.href}
-                  target={link.external ? '_blank' : undefined}
-                  rel={link.external ? 'noopener noreferrer' : undefined}
-                  class="footer-link"
-                >{link.label}</a>
-              </li>
+              <li><a href={link.href} class="footer-link">{link.label}</a></li>
             ))}
           </ul>
         </div>
       ))}
+
+      <!-- Direct contact col removed -->
     </div>
 
-    <!-- Bottom legal row -->
+    <!-- Stripe footer-light: legal row -->
     <div class="footer-bottom">
-      <p class="footer-legal">
-        © {currentYear} CA Shweta Verma. All rights reserved.
-      </p>
-      <p class="footer-legal">
-        Content is for educational purposes only, not personalised professional advice.{' '}
-        <a href="#disclaimer" class="footer-disclaimer-link">Read disclaimer</a>
-      </p>
+      <p class="footer-legal">© {year} Shahid Raza Khan &amp; Co, Chartered Accountants. All rights reserved.</p>
     </div>
   </div>
 </footer>
 
 <style>
-  .footer {
-    background: var(--color-canvas);
-    border-top: 1px solid var(--color-hairline);
-    padding-top: 64px;
-  }
+  .footer { background: var(--color-primary-indigo); }
+
+  /* Stripe footer-light: 64px 24px padding */
+  .footer-body { padding-top: var(--space-huge); } /* 64px */
 
   .footer-top {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
-    gap: 48px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid var(--color-hairline);
+    gap: var(--space-xxl); /* 32px — Stripe xxl */
+    padding-bottom: var(--space-xxl);
+    border-bottom: 1px solid rgba(255,255,255,0.10);
   }
 
   /* Brand */
-  .footer-brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    margin-bottom: 16px;
-  }
-  .footer-brand-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 34px;
-    height: 34px;
-    background: var(--color-primary-ink);
-    border-radius: var(--radius-sm);
-    color: #fff;
-    font-family: var(--font-display);
-    font-size: 13px;
-    font-weight: 700;
+  .footer-brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 14px; }
+  .footer-badge {
+    width: 32px; height: 32px;
+    background: var(--color-accent-brass-dk);
+    border-radius: var(--radius-xs);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: #fff; font-family: var(--font-display); font-size: 12px; font-weight: 700;
     flex-shrink: 0;
-    font-optical-sizing: auto;
   }
   .footer-brand-name {
     font-family: var(--font-display);
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--color-primary-ink);
-    letter-spacing: -0.01em;
-    font-optical-sizing: auto;
+    font-size: 15px; font-weight: 600; color: #fff;
   }
-  .footer-brand-tagline {
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 1.65;
-    color: var(--color-neutral-600);
-    margin: 0 0 20px;
-    max-width: 280px;
+  .footer-tagline {
+    font-family: var(--font-display); font-style: italic; font-size: 13px;
+    color: var(--color-accent-brass-lt); margin: 0 0 12px; line-height: 1.55;
   }
+  .footer-address { font-size: var(--text-caption); line-height: 1.6; color: var(--color-on-dark-faint); margin: 0 0 18px; }
 
-  .footer-social {
-    display: flex;
-    gap: 8px;
-  }
+  .footer-social { display: flex; gap: 8px; }
   .footer-social-icon {
-    width: 32px;
-    height: 32px;
-    border: 1px solid var(--color-hairline);
-    border-radius: var(--radius-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-primary-blue);
-    text-decoration: none;
-    opacity: 0.65;
-    transition: opacity 150ms ease, border-color 150ms ease;
+    width: 32px; height: 32px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: var(--radius-xs);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--color-on-dark-muted);
+    transition: border-color 150ms ease, color 150ms ease;
   }
-  .footer-social-icon:hover {
-    opacity: 1;
-    border-color: var(--color-primary-blue);
-  }
+  .footer-social-icon:hover { border-color: var(--color-accent-brass-lt); color: var(--color-accent-brass-lt); }
 
-  /* Nav columns */
-  .footer-col-heading {
-    font-size: 11px;
-    color: var(--color-primary-ink);
-    letter-spacing: 0.08em;
-    margin: 0 0 14px;
-  }
-  .footer-link-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .footer-link {
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 400;
-    color: var(--color-neutral-600);
-    text-decoration: none;
-    transition: color 150ms ease;
-  }
-  .footer-link:hover { color: var(--color-primary-ink); }
+  /* Stripe footer link columns — label treatment from .label-text */
+  .footer-col-heading { color: var(--color-on-dark-faint); margin: 0 0 14px; }
+  .footer-link-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .footer-link { font-size: 13px; color: var(--color-on-dark-muted); text-decoration: none; transition: color 150ms ease; }
+  .footer-link:hover { color: var(--color-accent-brass-lt); }
+  .footer-mono { font-family: var(--font-mono); font-size: var(--text-caption); overflow-wrap: break-word; }
 
-  /* Bottom row */
+  /* Stripe footer-light legal row: caption size */
   .footer-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; flex-wrap: wrap;
     padding: 20px 0;
-    gap: 16px;
-    flex-wrap: wrap;
   }
-  .footer-legal {
-    font-family: var(--font-body);
-    font-size: 12px;
-    font-weight: 400;
-    color: var(--color-neutral-600);
-    opacity: 0.65;
-    margin: 0;
-    line-height: 1.5;
-  }
-  .footer-disclaimer-link {
-    color: var(--color-primary-blue);
-    text-decoration: none;
-  }
-  .footer-disclaimer-link:hover { text-decoration: underline; }
+  .footer-legal { font-size: var(--text-caption); color: var(--color-on-dark-faint); margin: 0; }
 
   @media (max-width: 900px) {
-    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
     .footer-brand-col { grid-column: 1 / -1; }
-    .footer-brand-tagline { max-width: none; }
   }
-  @media (max-width: 600px) {
-    .footer-top { grid-template-columns: 1fr 1fr; gap: 24px; }
-    .footer-nav-col { margin-top: 12px; }
+  @media (max-width: 480px) {
+    .footer-top { grid-template-columns: 1fr 1fr; }
     .footer-bottom { flex-direction: column; align-items: flex-start; }
-  }
-  @media (max-width: 380px) {
-    .footer-top { gap: 16px; }
-    .footer-link { font-size: 12px; overflow-wrap: break-word; }
-    .footer-col-heading { font-size: 10px; }
   }
 </style>

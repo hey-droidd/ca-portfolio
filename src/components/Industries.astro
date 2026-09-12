@@ -1,0 +1,136 @@
+---
+/**
+ * INDUSTRIES — white background.
+ * Uniform card grid — no color alternation between cards.
+ * One custom line-icon per industry.
+ * Stripe card-feature-light: white, 32px padding, 12px radius, 1px hairline, shadow-1.
+ */
+const industries = [
+  {
+    name: 'Manufacturing',
+    line: 'Cost records, stock audits and plant-level controls for factory floors across Vidarbha.',
+    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 26V14l5 3V14l5 3V14l5 3V10l9-5v21H3z"/><path d="M8 26v-5M14 26v-5M20 26v-5"/></svg>`,
+  },
+  {
+    name: 'Dairy',
+    line: 'Co-operative accounts, milk-procurement cycles and farmer payout discipline.',
+    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 12h18v6a8 8 0 01-8 8h-1a7 7 0 01-9-7V12z"/><path d="M22 13h3a3 3 0 010 6h-3M9 12V9.5M13 12V8M17 12V9.5"/></svg>`,
+  },
+  {
+    name: 'Shipping',
+    line: 'Multi-currency ledgers, freight documentation and cross-border compliance.',
+    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h24l-3 6H7L4 20z"/><path d="M14 20v-7h5V9M14 13H9M19 13h4"/><path d="M7 28c1.5 1 3 1 4.5 0s3-1 4.5 0 3 1 4.5 0"/></svg>`,
+  },
+  {
+    name: 'Clubs & Associations',
+    line: 'Trust accounting, utilisation certificates and transparent member reporting.',
+    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="11" r="4"/><circle cx="22" cy="11" r="4"/><path d="M3 26c0-4 3-6 7-6s7 2.5 7 6M15 26c0-3.5 3-5.5 7-5.5s6 2 6 5"/></svg>`,
+  },
+  {
+    name: 'Real Estate',
+    line: 'RERA compliance, project books and buyer-agreement audit.',
+    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14l12-9 12 9"/><path d="M7 12v14h18V12"/><path d="M13 26v-7h6v7"/></svg>`,
+  },
+  {
+    name: 'Global Technology',
+    line: 'EY-honed readiness for SaaS, services exports and distributed teams.',
+    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="26" height="17" rx="1.5"/><path d="M12 26h8M16 22v4M8 12l3 3-3 3M17 17h6"/></svg>`,
+  },
+];
+---
+
+<section id="industries" class="industries-section section-pad" aria-label="Industries we serve">
+  <div class="container-xl">
+
+    <header class="ind-header">
+      <p class="label-text ind-eyebrow">Industries · Where the rigour gets applied</p>
+      <h2 class="section-heading reveal">
+        Industries<br />we serve.
+      </h2>
+      <p class="ind-lede">
+        From Vidarbha's dairy routes and factory floors to shipping desks and
+        global technology clients — one methodology, adapted to each ledger.
+      </p>
+    </header>
+
+    <ul class="ind-grid" role="list" data-stagger-group>
+      {industries.map((ind, i) => (
+        <li class="ind-card card" data-stagger-item>
+          <span class="ind-icon" aria-hidden="true" set:html={ind.icon} />
+          <h3 class="ind-name">{ind.name}</h3>
+          <p class="ind-line">{ind.line}</p>
+        </li>
+      ))}
+    </ul>
+
+  </div>
+</section>
+
+<style>
+  .industries-section { background: var(--color-canvas); }
+
+  .ind-header { margin-bottom: 56px; }
+  .ind-eyebrow { color: var(--color-accent-brass-dk); margin: 0 0 16px; display: block; }
+  .ind-header .section-heading { margin: 0 0 20px; }
+  .ind-lede {
+    font-size: var(--text-body);
+    line-height: 1.65;
+    color: var(--color-neutral-600);
+    max-width: 480px;
+    margin: 0;
+  }
+
+  /* Uniform 3-column grid — Stripe 4-up → 2-up → 1-up pattern adapted to 3 items */
+  .ind-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px; /* Stripe xl spacing */
+  }
+
+  /* Stripe card-feature-light — uniform across all 6 cards */
+  .ind-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: box-shadow 150ms var(--ease-out), transform 150ms var(--ease-out);
+  }
+  .ind-card:hover {
+    box-shadow: var(--shadow-2);
+    transform: translateY(-2px);
+  }
+
+  .ind-icon {
+    color: var(--color-accent-brass);
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .ind-name {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--color-primary-indigo);
+    margin: 0 0 10px;
+  }
+
+  .ind-line {
+    font-size: var(--text-body);
+    line-height: 1.65;
+    color: var(--color-neutral-600);
+    margin: 0;
+  }
+
+  /* Breakpoints: 3-up → 2-up → 1-up */
+  @media (max-width: 1023px) {
+    .ind-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .ind-grid { grid-template-columns: 1fr; gap: 16px; }
+    .ind-header { margin-bottom: 40px; }
+  }
+</style>
