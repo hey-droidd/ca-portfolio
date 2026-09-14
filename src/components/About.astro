@@ -1,97 +1,82 @@
 ---
-/**
- * ABOUT — dark indigo section (primary-indigo bg).
- * Newsreader pull-quote leads. Space Mono stats count up on scroll.
- * No card borders — clean typographic blocks per brief.
- * Stripe: 96px section padding, 1200px container, generous internal whitespace.
- */
-const stats = [
-  { figure: '6+',   label: 'Years Experience',   id: 'stat-years',        target: 6,   suffix: '+' },
-  { figure: '500+', label: 'Clients Served',      id: 'stat-clients',      target: 500, suffix: '+' },
-  { figure: '100%', label: 'Client Satisfaction', id: 'stat-satisfaction', target: 100, suffix: '%' },
-  { figure: '100+', label: 'CAs Mentored',        id: 'stat-mentored',     target: 100, suffix: '+' },
+const steps = [
+  {
+    no: '01',
+    title: 'Understand the property',
+    text: 'Review the transaction, ownership structure, agreements, and competing interests before recommending a course of action.',
+  },
+  {
+    no: '02',
+    title: 'Define the problem',
+    text: 'Separate the legal issue from the surrounding noise and identify the decisions that actually matter.',
+  },
+  {
+    no: '03',
+    title: 'Build the strategy',
+    text: 'Evaluate negotiation, settlement, litigation, or other available paths against the client\u2019s objectives.',
+  },
+  {
+    no: '04',
+    title: 'Move deliberately',
+    text: 'Give clients clear next steps rather than unnecessary legal complexity — and stay personally involved.',
+  },
 ];
 ---
 
-<section id="about" class="about-section section-pad" aria-label="About CA Shahid Raza Khan">
+<section id="about" class="about-section section-pad" aria-label="About Scott Okamoto Law">
   <div class="container-xl">
 
-    <!-- Pull-quote — the EY-to-Amravati narrative hook -->
-    <blockquote class="about-pullquote reveal">
-      <p class="pull-quote">
-        "I led audit engagements at EY across Europe, the Middle East and the
-        Nordics — then came home to give Vidarbha businesses that same rigour."
-      </p>
-      <footer class="about-pullquote-attr">
-        — CA Shahid Raza Khan, Founder, Shahid Raza Khan &amp; Co
-      </footer>
-    </blockquote>
-
-    <!-- Divider: the quote is a personal statement, the body below is the
-         practice's approach — two different ideas, visually separated -->
-    <div class="about-divider" aria-hidden="true"></div>
-
-    <!-- Body + stats grid -->
     <div class="about-body">
 
       <div class="about-copy">
         <h2 class="section-heading on-dark reveal">
-          Big Four discipline,<br />applied locally.
+          Clear advice when<br />the property stakes are high.
         </h2>
 
         <p class="about-para">
-          CA Shahid Raza Khan began his career at Ernst &amp; Young, leading audit
-          engagements across Europe, the Middle East, Denmark, Norway, Sweden and
-          Finland. That is where the world's most demanding companies document,
-          control and defend their numbers.
+          Scott Okamoto counsels clients navigating real estate transactions,
+          ownership questions, and property disputes in San Francisco. Each
+          matter starts with careful analysis of the documents, the property,
+          and the business context behind them.
         </p>
         <p class="about-para">
-          He returned to Amravati to build an independent practice on a single
-          conviction: local manufacturers, traders and professionals in Vidarbha
-          deserve the same calibre of audit and compliance thinking that global
-          clients take for granted. Big Four methodology, with the responsiveness
-          of a firm that answers its own phone.
+          Where negotiation can resolve the issue, he pursues it. Where
+          litigation is necessary, he prepares for it. Either way, clients
+          work directly with their attorney — and leave each conversation
+          knowing what comes next.
         </p>
 
-        <dl class="about-creds" aria-label="Career credentials">
+        <dl class="about-creds" aria-label="How the firm works">
           <div class="about-cred">
-            <dt>EY</dt>
-            <dd>Audit engagements · Europe · Middle East · Nordics</dd>
+            <dt>Analysis</dt>
+            <dd>Facts, documents, and property context first</dd>
           </div>
           <div class="about-cred">
-            <dt>ICAI</dt>
-            <dd>Member, Institute of Chartered Accountants of India</dd>
+            <dt>Advice</dt>
+            <dd>Plain-language options, risks, and trade-offs</dd>
           </div>
           <div class="about-cred">
-            <dt>MGNREGA</dt>
-            <dd>Internal auditor · Amravati &amp; Yavatmal · 3 years</dd>
+            <dt>Resolution</dt>
+            <dd>Negotiation where possible, litigation when needed</dd>
           </div>
           <div class="about-cred">
-            <dt>Mentor</dt>
-            <dd>CA Monk · 100+ CAs mentored since 2022</dd>
+            <dt>Access</dt>
+            <dd>Personal attorney involvement throughout</dd>
           </div>
         </dl>
       </div>
 
-      <!-- Stats column — Space Mono, count-up on scroll, no card borders -->
-      <aside class="about-stats" aria-label="Practice statistics">
-        <p class="label-text about-stats-eyebrow">Practice at a glance</p>
-        <dl class="about-stats-list">
-          {stats.map(s => (
-            <div class="about-stat-block">
-              <dt
-                class="stat-fig reveal"
-                data-target={s.target}
-                data-suffix={s.suffix}
-                id={s.id}
-                aria-label={`${s.figure} ${s.label}`}
-              >
-                {s.figure}
-              </dt>
-              <dd class="about-stat-label label-text">{s.label}</dd>
-            </div>
+      <aside class="about-steps" aria-label="The firm’s approach">
+        <p class="label-text about-stats-eyebrow">Approach · Four moves, in order</p>
+        <ol class="about-stats-list" data-stagger-group>
+          {steps.map(s => (
+            <li class="about-stat-block" data-stagger-item>
+              <span class="about-step-no" aria-hidden="true">{s.no}</span>
+              <h3 class="about-step-title">{s.title}</h3>
+              <p class="about-step-text">{s.text}</p>
+            </li>
           ))}
-        </dl>
+        </ol>
       </aside>
 
     </div>
@@ -105,8 +90,6 @@ const stats = [
     overflow: clip;
   }
 
-  /* Signature texture: fine 1px white grid at 5% on the indigo —
-     same restraint as the Hero, reads as texture */
   .about-section::before {
     content: "";
     position: absolute;
@@ -118,29 +101,6 @@ const stats = [
     background-size: 44px 44px;
   }
 
-  /* Pull-quote — its own moment, ruled off from the body below */
-  .about-pullquote {
-    margin: 0 0 64px;
-    padding: 0;
-    max-width: 880px;
-  }
-  .about-pullquote .pull-quote {
-    color: var(--color-on-dark);
-    margin: 0 0 20px;
-  }
-  .about-pullquote-attr {
-    font-size: var(--text-caption);
-    line-height: 1.6;
-    color: var(--color-on-dark-muted);
-    letter-spacing: 0.02em;
-  }
-
-  /* Two-column body */
-  .about-divider {
-    height: 1px;
-    background: rgba(255, 255, 255, 0.14);
-    margin: 0 0 64px;
-  }
   .about-body {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
@@ -148,7 +108,6 @@ const stats = [
     align-items: start;
   }
 
-  /* Copy col */
   .about-copy .section-heading { margin: 0 0 28px; }
 
   .about-para {
@@ -158,7 +117,6 @@ const stats = [
     margin: 0 0 18px;
   }
 
-  /* Credentials grid — no card borders, just ruled rows */
   .about-creds {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -190,107 +148,60 @@ const stats = [
     line-height: 1.6;
   }
 
-  /* Stats col — clean typographic blocks, no borders */
-  .about-stats { padding-top: 8px; }
+  .about-steps { padding-top: 8px; }
   .about-stats-eyebrow {
     color: var(--color-on-dark-faint);
     margin: 0 0 32px;
     display: block;
   }
   .about-stats-list {
+    list-style: none;
     display: flex;
     flex-direction: column;
     gap: 0;
-    margin: 0 0 28px;
+    margin: 0;
+    padding: 0;
     border-top: 1px solid rgba(255,255,255,0.12);
   }
   .about-stat-block {
     padding: 28px 0;
     border-bottom: 1px solid rgba(255,255,255,0.08);
   }
-  /* stat-fig from global — brass, Space Mono */
-  .about-stat-label {
+  .about-step-no {
     display: block;
-    color: var(--color-on-dark-faint);
-    margin-top: 8px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: var(--color-accent-brass-lt);
+    margin-bottom: 8px;
+  }
+  .about-step-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--color-on-dark);
+    margin: 0 0 8px;
+  }
+  .about-step-text {
+    font-size: var(--text-body);
+    line-height: 1.65;
+    color: var(--color-on-dark-muted);
+    margin: 0;
   }
   @media (max-width: 900px) {
     .about-body { grid-template-columns: 1fr; gap: 52px; }
-    .about-pullquote { margin-bottom: 48px; }
-    .about-divider { margin-bottom: 48px; }
-  }
-  /* Tablet + mobile: stats run in a single row (desktop keeps sidebar) */
-  @media (max-width: 900px) {
-    .about-stats-list {
-      flex-direction: row;
-      gap: 32px;
-      border-top: none;
-    }
-    .about-stat-block {
-      flex: 1;
-      min-width: 0;
-      padding: 0 0 0 24px;
-      border-bottom: none;
-      border-left: 1px solid rgba(255, 255, 255, 0.12);
-    }
-    .about-stat-block:first-child { padding-left: 0; border-left: none; }
   }
   @media (max-width: 600px) {
-    /* Four stats: 2×2 grid on small screens (single row would overflow) */
-    .about-stats-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-    }
-    .about-stat-block {
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      border-left: none;
-    }
-    .about-stat-block:nth-child(even) {
-      padding-left: 20px;
-      border-left: 1px solid rgba(255, 255, 255, 0.12);
-    }
-    .about-stat-block:nth-child(n+3) { border-bottom: none; }
-    .about-stats-list .stat-fig { font-size: 30px; }
-  }
-  @media (max-width: 600px) {
-    /* Keep the 2×2 credential grid on mobile — tighter gutters only */
     .about-cred:nth-child(odd) { padding-right: 12px; }
     .about-cred:nth-child(even) { padding-left: 12px; }
   }
 </style>
 
 <script>
-  /* Count-up for stat figures + reveal for headings/stats only */
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function easeOut(t: number) { return 1 - Math.pow(1 - t, 3); }
-
-  function countUp(el: Element, target: number, suffix: string) {
-    if (prefersReduced) { el.textContent = target + suffix; return; }
-    const start = performance.now();
-    const dur = 1000;
-    const step = (now: number) => {
-      const p = Math.min((now - start) / dur, 1);
-      el.textContent = Math.floor(easeOut(p) * target) + suffix;
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }
-
-  /* Stat count-up observer */
-  const statObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const el = entry.target as HTMLElement;
-      countUp(el, Number(el.dataset.target ?? 0), el.dataset.suffix ?? '');
-      statObs.unobserve(el);
-    });
-  }, { threshold: 0.5 });
-
-  /* Reveal observer — section headings + stat figures only */
   const revealObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -300,8 +211,6 @@ const stats = [
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  /* Stagger observer — grouped entries (service rows, industry cards,
-     recognition rows) fade in 55ms apart. Same calm 400ms ease. */
   const staggerObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -318,8 +227,4 @@ const stats = [
 
   document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
   document.querySelectorAll('[data-stagger-group]').forEach(el => staggerObs.observe(el));
-  document.querySelectorAll('[data-target]').forEach(el => {
-    revealObs.observe(el); /* also reveal */
-    statObs.observe(el);   /* and count up */
-  });
 </script>

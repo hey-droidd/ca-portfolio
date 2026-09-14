@@ -1,49 +1,67 @@
 ---
-/**
- * SERVICES — neutral-50 background.
- * Three services, alternating left-right layout.
- * Space Mono large numbers. Real paragraph descriptions.
- * Stripe: 32px card padding, 12px radius, Level 1 shadow on white cards.
- */
 const services = [
   {
     no: '01',
-    title: 'Audit & Assurance',
+    title: 'Real Estate Transactions',
     description:
-      'Statutory, internal and tax audits executed to the standard CA Shahid practised at EY — planned risk-first, documented thoroughly, and closed with findings you can actually act on. For companies, trusts, societies and government-linked assignments, the audit is treated as a control upgrade, not a signature exercise: systems are tested, gaps are named plainly, and the management letter leaves you stronger than it found you. That Big Four discipline, sized for Vidarbha businesses that have never had access to it.',
-    points: ['Statutory & tax audit', 'Internal & management audit', 'Stock & concurrent audit'],
-    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3l9 4v5.5c0 5.5-4 9.2-9 11-5-1.8-9-5.5-9-11V7l9-4z"/><path d="M10 13.5l2.5 2.5 5.5-5.5"/></svg>`,
+      'Counsel for property purchases, sales, agreements, and other real estate transactions where careful review and clear legal guidance matter — before signatures create problems.',
+    points: ['Purchase & sale counsel', 'Agreement review', 'Transaction guidance'],
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 24V12l10-8 10 8v12"/><path d="M10 24v-7h8v7"/><path d="M4 12h20"/></svg>`,
   },
   {
     no: '02',
-    title: 'Regulatory Compliance',
+    title: 'Real Estate Disputes',
     description:
-      'Income tax, GST, TDS, ROC and RERA filings handled as an ongoing control calendar — nothing left to deadline panic. Returns are reconciled to books before filing, notices are answered with documented reasoning rather than rushed replies, and registrations are structured correctly from day one. With experience spanning MGNREGA internal audit for two districts and a published RERA paper, regulatory work here is proactive: you know what is due, what changed, and what it means for you, before the department asks.',
-    points: ['Income Tax, GST & TDS', 'ROC & RERA filings', 'Notice handling & representation'],
-    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="18" height="22" rx="1.5"/><path d="M9 9h10M9 13h10M9 17h6"/><path d="M17.5 18.5l1.5 1.5 3-3"/></svg>`,
+      'Representation and counsel concerning disagreements involving property rights, contracts, ownership, and related real estate conflicts — assessed practically, pursued deliberately.',
+    points: ['Property-rights conflicts', 'Contract disputes', 'Ownership disagreements'],
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v10"/><path d="M6 7h16"/><path d="M6 7l-3 7a4 4 0 007 0L7 7"/><path d="M22 7l-3 7a4 4 0 007 0l-3-7"/><path d="M11 21h6"/></svg>`,
   },
   {
     no: '03',
-    title: 'Financial Advisory',
+    title: 'Boundary & Neighbor Disputes',
     description:
-      'The part most local firms skip: sitting with you before the decision, not after. Business structuring, working-capital reviews, loan documentation, investment and tax-position planning — each grounded in audited numbers rather than optimism. Drawing on exposure to global technology clients and shipping, manufacturing and real-estate engagements, advice is given in plain language with the working papers to back it: what the options cost, what the risks are, and which path the numbers support.',
-    points: ['Business structuring', 'Working capital & loan support', 'Tax-efficient investment planning'],
-    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21l6.5-6.5 4 4L24 8"/><path d="M20 8h4v4"/></svg>`,
+      'Legal guidance for disputes involving property boundaries, neighboring owners, and competing claims over the use or rights associated with property.',
+    points: ['Boundary questions', 'Neighbor conflicts', 'Use & access claims'],
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l20 20" stroke-dasharray="3 3"/><path d="M9 9H4v16h16v-5"/><path d="M19 19h5V4H9"/></svg>`,
+  },
+  {
+    no: '04',
+    title: 'Co-Ownership Disputes',
+    description:
+      'Counsel for disagreements between co-owners concerning ownership interests, use, management, sale, or division of property.',
+    points: ['Ownership interests', 'Use & management', 'Sale or division'],
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="5"/><circle cx="18" cy="18" r="5"/><path d="M14 6l8 16"/></svg>`,
+  },
+  {
+    no: '05',
+    title: 'Landlord–Tenant Matters',
+    description:
+      'Legal assistance involving disputes and other real estate issues between landlords and tenants — grounded in the lease, the facts, and the objective.',
+    points: ['Lease disputes', 'Possession & use issues', 'Landlord–tenant guidance'],
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l10-7 10 7"/><path d="M6 9v12h16V9"/><path d="M12 21v-5h4v5"/></svg>`,
+  },
+  {
+    no: '06',
+    title: 'Purchase & Sale Disputes',
+    description:
+      'Advice and representation when a real estate transaction develops into a dispute involving contracts, representations, disclosure, or performance.',
+    points: ['Contract performance', 'Disclosure questions', 'Failed closings'],
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="18" height="22" rx="1.5"/><path d="M9 9h10M9 13h10M9 17h6"/></svg>`,
   },
 ];
 ---
 
-<section id="services" class="services-section section-pad" aria-label="Services">
+<section id="practice-areas" class="services-section section-pad" aria-label="Practice areas">
   <div class="container-xl">
 
     <header class="services-header">
-      <p class="label-text services-eyebrow">Services · Three disciplines, done deeply</p>
+      <p class="label-text services-eyebrow">Practice Areas · Real estate, handled precisely</p>
       <h2 class="section-heading reveal">
-        What the firm<br />takes responsibility for.
+        What the practice<br />takes responsibility for.
       </h2>
       <p class="services-lede">
-        Fewer services than a general practice — deliberately. Each engagement
-        gets partner-level attention and global-grade documentation.
+        Six areas, one focus: property matters where the documents, the
+        interests, and the stakes all deserve close attention.
       </p>
     </header>
 
@@ -51,12 +69,10 @@ const services = [
       {services.map((s, i) => (
         <li class={`service-row ${i % 2 === 1 ? 'service-row--flip' : ''}`} data-stagger-item>
 
-          <!-- Large Space Mono number -->
           <div class="service-num-col" aria-hidden="true">
             <span class="service-no">{s.no}</span>
           </div>
 
-          <!-- Content card — Stripe card-feature-light structure -->
           <div class="service-card card">
             <div class="service-card-header">
               <span class="service-icon" aria-hidden="true" set:html={s.icon} />
@@ -67,13 +83,11 @@ const services = [
               {s.points.map(p => <li>{p}</li>)}
             </ul>
             <a
-              href={`https://wa.me/918087128040?text=Hi%20CA%20Shahid%2C%20I%20would%20like%20to%20discuss%20${encodeURIComponent(s.title)}.`}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contact"
               class="link-brass service-enquire"
-              aria-label={`Enquire about ${s.title}`}
+              aria-label={`Discuss ${s.title}`}
             >
-              Enquire about this service →
+              Discuss this matter →
             </a>
           </div>
 
@@ -98,7 +112,6 @@ const services = [
     margin: 0;
   }
 
-  /* Alternating rows */
   .services-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 40px; }
 
   .service-row {
@@ -113,7 +126,6 @@ const services = [
   .service-row--flip .service-num-col { order: 2; text-align: right; }
   .service-row--flip .service-card { order: 1; }
 
-  /* Number watermark */
   .service-num-col { padding-top: 16px; }
   .service-no {
     font-family: var(--font-mono);
@@ -126,7 +138,6 @@ const services = [
     display: block;
   }
 
-  /* Card — Stripe card-feature-light: white, 32px pad, 12px radius, shadow-1 */
   .service-card { background: var(--color-canvas); }
 
   .service-card-header {
@@ -154,7 +165,6 @@ const services = [
     margin: 0 0 20px;
   }
 
-  /* Stripe pill-tag-soft structure — adapted to indigo palette */
   .service-points {
     list-style: none;
     margin: 0 0 20px;

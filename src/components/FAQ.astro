@@ -1,42 +1,34 @@
 ---
-/**
- * FAQ — white background, between Recognition (indigo) and Contact (neutral-50).
- * Accordion of 6 real, commonly asked tax/GST questions.
- * Entries use the site-wide stagger system; accordion motion in global.css.
- * FAQPage JSON-LD included for SEO.
- * Placed after Recognition / before Contact.
- */
-
 const faqs = [
   {
-    id: 'tax-regime',
-    question: 'Which tax regime should I choose: old or new?',
-    answer: `It depends on your deductions. The new regime (default from FY 2023-24) offers lower slab rates but disallows most deductions like 80C, HRA, and home loan interest. The old regime makes sense if your total deductions exceed roughly ₹3.5–4 lakh. A quick calculation comparing your taxable income under both regimes, which I do for every client, will give you a clear answer. There is no one-size-fits-all; it varies by income level and life stage.`,
+    id: 'types',
+    question: 'What types of real estate matters do you handle?',
+    answer: `The practice focuses on real estate transactions, purchase and sale disputes, boundary and neighbor disputes, co-ownership disputes, landlord–tenant matters, and related real estate litigation. If your situation involves property rights, contracts, ownership, or the use of property, it is likely within scope — and a consultation can confirm that.`,
   },
   {
-    id: 'notice-143',
-    question: 'What happens if I receive a Section 143(1) notice?',
-    answer: `Section 143(1) is an intimation, not a full scrutiny. The Income Tax Department processes your return computationally and sends this if it finds a mismatch between your filed return and its own data (TDS, advance tax, Form 26AS). Most cases involve minor arithmetic adjustments or a demand for tax. You must respond within the specified time (usually 30 days) and either accept the adjustment, dispute it, or file a rectification. Ignoring it can let a demand become final. If you receive one, share it with me immediately — most 143(1) cases are resolved quickly.`,
+    id: 'when',
+    question: 'When should I speak with a real estate attorney?',
+    answer: `Earlier than most people do. Before signing a consequential agreement, after receiving a demand or notice, when a boundary or neighbor disagreement stops being conversational, or when co-owners reach an impasse — each of these is easier to address before positions harden. If you are unsure whether your situation is legal yet, that uncertainty itself is a good reason to ask.`,
   },
   {
-    id: 'below-exemption',
-    question: 'Do I need to file a return if my income is below the basic exemption limit?',
-    answer: `Not always, but often yes. Even if your income is below the basic exemption limit, you must file if: you hold foreign assets or earn foreign income, you deposited more than ₹1 crore in savings accounts, you spent over ₹2 lakh on foreign travel, or your electricity bill exceeded ₹1 lakh. Filing is also mandatory if you want to carry forward capital losses. And as a practical matter, a filed return is frequently required for visa applications, loan approvals, and government tenders.`,
+    id: 'without-court',
+    question: 'Can a real estate dispute be resolved without going to court?',
+    answer: `Often, yes. Many property disputes are resolved through direct negotiation, structured settlement discussions, or other out-of-court paths — particularly when the facts and documents are understood early. Litigation remains an option when necessary, but it is not the starting assumption. The right path depends on the documents, the parties, and the client\u2019s objectives.`,
   },
   {
-    id: 'gst-turnover',
-    question: 'When does my business need to register for GST?',
-    answer: `GST registration is mandatory once your aggregate turnover in a financial year exceeds ₹40 lakh for goods or ₹20 lakh for services (₹10 lakh for special category states). Even below these limits, registration is compulsory if you sell interstate, run an e-commerce business, or fall under specific notified categories. Voluntary registration is also available if you want to claim input tax credit (ITC). Starting a new business in Vidarbha? It is worth deciding early — retrospective registration is more complicated.`,
+    id: 'neighbor',
+    question: 'What should I do if I am involved in a property dispute with a neighbor?',
+    answer: `Preserve the relevant documents — deeds, surveys, correspondence, photographs — and avoid actions that could escalate the situation or weaken your position. Do not rely on assumptions about where a boundary lies or what a prior owner agreed to. An early review of the documents usually clarifies what is actually disputed and what options exist.`,
   },
   {
-    id: 'itr-deadline',
-    question: 'What is the penalty for filing my ITR late?',
-    answer: `Under Section 234F, a late filing fee of ₹5,000 applies if you file after the due date but before 31 December of the assessment year. This reduces to ₹1,000 if your total income is below ₹5 lakh. Beyond 31 December, you must file a belated or updated return with additional tax. Late filing also means losing the ability to carry forward most losses. The ITR due date is 31 July for most individuals — I run a filing calendar for every client so nothing slips.`,
+    id: 'transaction-dispute',
+    question: 'What should I do if a real estate transaction becomes contentious?',
+    answer: `Gather the contract and all related communications, note the key dates and deadlines, and avoid further representations until the position is clear. Purchase and sale disputes frequently turn on specific contract language, disclosure, and performance — details that reward careful, early review.`,
   },
   {
-    id: 'nri-taxation',
-    question: 'I am an NRI with rental income in India. Do I need to file a return?',
-    answer: `Yes. If your Indian-sourced income exceeds the basic exemption limit, you must file an ITR in India regardless of where you reside. Rental income from Indian property is taxable, with TDS typically deducted by the tenant. You can claim the 30% standard deduction, municipal taxes, and home loan interest, and may get relief under India's Double Taxation Avoidance Agreement (DTAA) with your country of residence. Filing also lets you claim a refund if excess TDS was deducted.`,
+    id: 'consultation',
+    question: 'How does a consultation work?',
+    answer: `A consultation is a conversation about the situation and your objectives: the property, the documents, the parties involved, and what outcome matters most. From there, you will have a clearer sense of the legal position and the available next steps. Use the contact options below to request one.`,
   },
 ];
 
@@ -66,8 +58,8 @@ const faqSchema = {
         </h2>
       </div>
       <p class="faq-lede">
-        Real questions from real clients, on tax regimes, notices, deadlines,
-        and GST. If your question isn't here, just ask directly.
+        General information about real estate matters and consultations.
+        Nothing here is legal advice for a specific situation.
       </p>
     </header>
 
@@ -87,7 +79,6 @@ const faqSchema = {
             type="button"
           >
             <span>{faq.question}</span>
-            <!-- Chevron icon -->
             <span class="acc-icon" aria-hidden="true">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M2 4l4 4 4-4"/>
@@ -109,13 +100,17 @@ const faqSchema = {
       ))}
     </div>
 
-    <!-- Footer nudge -->
+    <p class="faq-disclaimer">
+      This website provides general information only. It is not legal advice
+      and does not create an attorney–client relationship.
+    </p>
+
     <p class="faq-footer">
       Have a different question?&ensp;
       <a
         href="#contact"
         class="link-brass"
-        aria-label="Contact CA Shahid Raza Khan with your question"
+        aria-label="Contact Scott Okamoto Law with your question"
       >Ask directly →</a>
     </p>
 
@@ -155,7 +150,16 @@ const faqSchema = {
     margin-bottom: 40px;
   }
 
-  /* accordion-item, accordion-trigger, accordion-body: global.css */
+  .faq-disclaimer {
+    font-size: var(--text-caption);
+    line-height: 1.6;
+    color: var(--color-secondary-mauve);
+    max-width: 860px;
+    margin: 0 0 20px;
+    padding-top: 4px;
+    border-top: 1px solid var(--color-hairline);
+    padding-top: 20px;
+  }
 
   .faq-footer {
     font-size: var(--text-body);
@@ -178,11 +182,6 @@ const faqSchema = {
 </style>
 
 <script>
-  /**
-   * FAQ accordion — smooth height transition via max-height.
-   * Opens one at a time (closes others on open).
-   * Respects prefers-reduced-motion (instant via CSS).
-   */
   const items = document.querySelectorAll<HTMLElement>('.accordion-item');
 
   items.forEach(item => {
@@ -193,7 +192,6 @@ const faqSchema = {
     trigger.addEventListener('click', () => {
       const isOpen = item.classList.contains('open');
 
-      // Close all items
       items.forEach(other => {
         const otherTrigger = other.querySelector<HTMLButtonElement>('.accordion-trigger');
         const otherBody = other.querySelector<HTMLElement>('.accordion-body');
@@ -202,11 +200,9 @@ const faqSchema = {
         if (otherBody) otherBody.style.maxHeight = '';
       });
 
-      // If it wasn't open, open it
       if (!isOpen) {
         item.classList.add('open');
         trigger.setAttribute('aria-expanded', 'true');
-        // Use scrollHeight for natural height
         body.style.maxHeight = body.scrollHeight + 'px';
       }
     });

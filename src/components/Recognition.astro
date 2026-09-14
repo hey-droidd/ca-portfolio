@@ -1,84 +1,75 @@
 ---
-/**
- * RECOGNITION — dark indigo section.
- * Clean vertical list: Space Mono date, Newsreader title, thin divider.
- * No icons, no colored blocks, no empty cells.
- * All 5 entries present with verified real content.
- */
 const entries = [
   {
-    year: '2017',
-    title: 'RERA Paper at ICAI Amravati Conference',
+    no: '01',
+    title: 'The contract is no longer straightforward',
     context:
-      'Presented research on the then-new Real Estate Regulation Act before the district chartered accountancy fraternity — an early signal of a practitioner who studies the law before the market catches up.',
+      'A purchase, sale, or agreement that looked routine now turns on language, timing, disclosure, or performance — and the next step is not obvious.',
   },
   {
-    year: '3 yrs',
-    title: 'MGNREGA Internal Auditor, Amravati & Yavatmal',
+    no: '02',
+    title: 'Ownership interests are in conflict',
     context:
-      'Three years as internal auditor for the rural employment guarantee scheme across two Vidarbha districts. Public money, audited to the standard it deserves.',
+      'Co-owners disagree about use, management, sale, or division, and the property itself becomes the pressure point.',
   },
   {
-    year: '10+',
-    title: 'Career-Guidance Lectures Across Vidarbha',
+    no: '03',
+    title: 'A boundary or neighboring-property dispute escalates',
     context:
-      'Invited lectures at colleges and schools across the region, guiding students toward the CA path and commerce careers. The profession, paid forward.',
+      'A fence line, an encroachment, or a competing claim over use becomes a legal question that neighborly discussion alone cannot settle.',
   },
   {
-    year: '2022 →',
-    title: 'Mentor, CA Monk — 100+ CAs Guided',
+    no: '04',
+    title: 'A transaction develops into a legal dispute',
     context:
-      'Mentoring newly qualified chartered accountants on practice-building and professional growth since 2022. A hundred careers touched and counting.',
+      'Representations, conditions, or obligations are disputed after the deal moves forward — and the documents now matter more than the handshake.',
   },
   {
-    year: '×3',
-    title: "Teachers' Day Guest of Honor, Akola",
+    no: '05',
+    title: 'Negotiation may be better than litigation',
     context:
-      'Honored guest for three consecutive years at the Akola Teachers\u2019 Day program — recognition from the educators themselves.',
+      'Not every property fight belongs in court. Sometimes the right move is a clear-eyed settlement pursued before positions harden.',
   },
 ];
 ---
 
-<section id="recognition" class="recognition-section section-pad" aria-label="Recognition and public service">
+<section id="why-counsel" class="recognition-section section-pad" aria-label="When to seek real estate counsel">
   <div class="container-xl">
 
     <div class="rec-layout">
 
-      <!-- Sticky intro col -->
       <div class="rec-intro">
-        <p class="label-text rec-eyebrow">Recognition · A record of showing up</p>
+        <p class="label-text rec-eyebrow">Relevance · Real client problems</p>
         <h2 class="section-heading on-dark reveal">
-          Credentials<br />earned in public.
+          When the property<br />is more complicated<br />than it looks.
         </h2>
         <p class="rec-lede">
-          Papers presented, districts audited, students guided, a hundred young
-          CAs mentored. This is the differentiator no marketing line can manufacture.
+          Most clients arrive with one of these situations. If yours looks
+          familiar, a conversation about the documents and the objective is
+          the right place to start.
         </p>
         <a
-          href="https://linkedin.com/in/shahidrazakhan"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#contact"
           class="btn-secondary on-dark"
-          aria-label="Connect on LinkedIn"
+          aria-label="Request a consultation about your property matter"
         >
-          Connect on LinkedIn
+          Request a Consultation
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </a>
       </div>
 
-      <!-- Entry list -->
-      <ol class="rec-list" role="list" aria-label="Achievements and public roles" data-stagger-group>
+      <ol class="rec-list" role="list" aria-label="Situations where real estate counsel helps" data-stagger-group>
         {entries.map((e, i) => (
           <li class="rec-entry" data-stagger-item>
             {i > 0 && <div class="rec-divider" aria-hidden="true"></div>}
             <div class="rec-entry-inner">
               <span
                 class="rec-year reveal"
-                aria-label={`Year or period: ${e.year}`}
+                aria-hidden="true"
               >
-                {e.year}
+                {e.no}
               </span>
               <div class="rec-content">
                 <h3 class="rec-title">{e.title}</h3>
@@ -103,7 +94,6 @@ const entries = [
     align-items: start;
   }
 
-  /* Intro col */
   .rec-eyebrow { color: var(--color-accent-brass-lt); margin: 0 0 20px; display: block; }
   .rec-intro .section-heading { margin: 0 0 20px; }
   .rec-lede {
@@ -114,7 +104,6 @@ const entries = [
   }
   .rec-intro { position: sticky; top: 100px; }
 
-  /* Entry list */
   .rec-list { list-style: none; margin: 0; padding: 0; }
   .rec-entry { margin: 0; }
 
@@ -132,8 +121,6 @@ const entries = [
     align-items: start;
   }
 
-  /* Space Mono date — same treatment as .stat-fig (family, weight,
-     spacing, color); compact size fits the date column */
   .rec-year {
     font-family: var(--font-mono);
     font-size: clamp(26px, 2.8vw, 36px);
@@ -147,7 +134,6 @@ const entries = [
     font-feature-settings: "tnum";
   }
 
-  /* Newsreader title */
   .rec-title {
     font-family: var(--font-display);
     font-size: clamp(20px, 2.2vw, 26px);

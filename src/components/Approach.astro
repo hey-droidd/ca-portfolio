@@ -1,0 +1,94 @@
+---
+const steps = [
+  {
+    title: 'Understand',
+    text: 'Review the facts, documents, property, and the client\u2019s objectives before advising.',
+  },
+  {
+    title: 'Advise',
+    text: 'Explain the legal position, risks, and available options in clear terms.',
+  },
+  {
+    title: 'Act',
+    text: 'Pursue the strategy that best fits the client\u2019s goals — negotiation, resolution, or litigation.',
+  },
+];
+---
+
+<section id="approach" class="approach-section section-pad" aria-label="How Scott Okamoto works">
+  <div class="container-xl">
+    <header class="approach-header">
+      <p class="label-text approach-eyebrow">Method · Three moves</p>
+      <h2 class="section-heading reveal">
+        Law should clarify the decision,<br />not complicate it.
+      </h2>
+    </header>
+
+    <ol class="approach-list" role="list" data-stagger-group>
+      {steps.map((s, i) => (
+        <li class="approach-row" data-stagger-item>
+          <span class="approach-no" aria-hidden="true">0{i + 1}</span>
+          <div>
+            <h3 class="approach-title">{s.title}</h3>
+            <p class="approach-text">{s.text}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .approach-section { background: var(--color-canvas); }
+  .approach-header { margin-bottom: 56px; }
+  .approach-eyebrow { color: var(--color-accent-brass-dk); margin: 0 0 16px; display: block; }
+  .approach-header .section-heading { margin: 0; }
+
+  .approach-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--color-hairline);
+  }
+  .approach-row {
+    padding: 32px 32px 8px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .approach-row + .approach-row {
+    padding-left: 32px;
+    border-left: 1px solid var(--color-hairline);
+  }
+  .approach-no {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: var(--color-accent-brass-dk);
+  }
+  .approach-title {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--color-primary-indigo);
+    margin: 0 0 8px;
+  }
+  .approach-text {
+    font-size: var(--text-body);
+    line-height: 1.65;
+    color: var(--color-neutral-600);
+    margin: 0;
+    max-width: 32ch;
+  }
+
+  @media (max-width: 900px) {
+    .approach-list { grid-template-columns: 1fr; }
+    .approach-row { padding: 28px 0; border-bottom: 1px solid var(--color-hairline); }
+    .approach-row + .approach-row { padding-left: 0; border-left: none; }
+    .approach-list { border-top: 1px solid var(--color-hairline); }
+  }
+</style>

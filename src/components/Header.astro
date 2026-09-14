@@ -1,17 +1,10 @@
 ---
-/**
- * HEADER — Stripe nav-bar-on-mesh structure (adapted):
- * canvas bg, logo left, links center, CTA right.
- * padding: 16px 24px per Stripe spec.
- * indigo/brass tokens throughout, no Stripe blue.
- */
 const navLinks = [
-  { href: '#about',       label: 'About' },
-  { href: '#services',    label: 'Services' },
-  { href: '#industries',  label: 'Industries' },
-  { href: '#recognition', label: 'Recognition' },
-  { href: '#faq',         label: 'FAQ' },
-  { href: '#contact',     label: 'Contact' },
+  { href: '#practice-areas', label: 'Practice Areas' },
+  { href: '#approach',       label: 'Approach' },
+  { href: '#about',          label: 'About' },
+  { href: '#faq',            label: 'FAQ' },
+  { href: '#contact',        label: 'Contact' },
 ];
 ---
 
@@ -20,11 +13,11 @@ const navLinks = [
     <div class="container-xl nav-inner">
 
       <!-- Logo left -->
-      <a href="#home" class="nav-brand" aria-label="CA Shahid Raza Khan — go to top">
-        <span class="nav-brand-badge" aria-hidden="true">SRK</span>
+      <a href="#home" class="nav-brand" aria-label="Scott Okamoto Law — go to top">
+        <span class="nav-brand-badge" aria-hidden="true">SO</span>
         <span class="nav-brand-text">
-          <span class="nav-brand-name">Shahid Raza Khan</span>
-          <span class="nav-brand-sub">Chartered Accountant</span>
+          <span class="nav-brand-name">Scott Okamoto Law</span>
+          <span class="nav-brand-sub">Real Estate · San Francisco</span>
         </span>
       </a>
 
@@ -38,13 +31,11 @@ const navLinks = [
       <!-- CTA right + hamburger -->
       <div class="nav-actions">
         <a
-          href="https://wa.me/918087128040?text=Hi%20CA%20Shahid%2C%20I%20would%20like%20to%20book%20a%20consultation."
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#contact"
           class="btn-primary nav-cta"
-          aria-label="Book a consultation via WhatsApp"
+          aria-label="Request a consultation"
         >
-          Book Consultation
+          Request a Consultation
         </a>
         <button
           id="menu-toggle"
@@ -69,17 +60,14 @@ const navLinks = [
         <a href={href} class="mobile-nav-link">{label}</a>
       ))}
       <a
-        href="https://wa.me/918087128040?text=Hi%20CA%20Shahid%2C%20I%20would%20like%20to%20book%20a%20consultation."
-        target="_blank"
-        rel="noopener noreferrer"
+        href="#contact"
         class="btn-primary mobile-cta"
-      >Book Consultation</a>
+      >Request a Consultation</a>
     </div>
   </nav>
 </header>
 
 <style>
-  /* Stripe nav-bar-on-mesh: canvas bg, 16px 24px padding */
   .nav-bar {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -99,13 +87,11 @@ const navLinks = [
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* Stripe nav: 16px 24px — top/bottom handled here */
     padding-top: var(--space-lg);
     padding-bottom: var(--space-lg);
     gap: var(--space-xl);
   }
 
-  /* Logo */
   .nav-brand { text-decoration: none; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
   .nav-brand-badge {
     width: 36px; height: 36px;
@@ -131,7 +117,6 @@ const navLinks = [
     letter-spacing: 0.04em;
   }
 
-  /* Links */
   .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; margin: 0; padding: 0; }
   .nav-link {
     font-size: 14px; font-weight: 500;
@@ -147,7 +132,6 @@ const navLinks = [
   }
   .nav-link:hover { opacity: 1; background-size: 100% 1.5px; }
 
-  /* Actions */
   .nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
   .nav-cta { font-size: 13px; padding: 9px 18px; min-height: 38px; }
 
@@ -158,7 +142,6 @@ const navLinks = [
     color: var(--color-primary-indigo);
   }
 
-  /* Mobile menu */
   .mobile-menu {
     display: none; flex-direction: column;
     background: var(--color-canvas);

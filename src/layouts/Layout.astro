@@ -9,72 +9,68 @@ interface Props {
 }
 
 const {
-  title = 'CA Shahid Raza Khan | International Knowledge. Local Care. | Amravati',
-  description = 'CA Shahid Raza Khan, founder of Shahid Raza Khan & Co, Chartered Accountants, Amravati. EY audit experience across Europe, the Middle East & Nordics — serving Vidarbha businesses with Audit & Assurance, Regulatory Compliance and Financial Advisory.',
+  title = 'Scott Okamoto Law | Real Estate Attorney · San Francisco',
+  description = 'Scott Okamoto Law — practical counsel for complex real estate matters in San Francisco: transactions, purchase and sale disputes, boundary and neighbor disputes, co-ownership, and landlord–tenant matters.',
   ogImage = '/og-image.png',
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
 } = Astro.props;
 
-const siteBase = Astro.site?.href.replace(/\/$/, '') ?? 'https://cashahidraza.in';
+const siteBase = Astro.site?.href.replace(/\/$/, '') ?? 'https://scottokamotolaw.com';
 
 const schema = {
   '@context': 'https://schema.org',
   '@graph': [
     {
-      '@type': 'Person',
-      '@id': `${siteBase}/#person`,
-      name: 'Shahid Raza Khan',
-      honorificPrefix: 'CA',
-      jobTitle: 'Chartered Accountant',
-      description: 'Founder of Shahid Raza Khan & Co. Former EY audit professional across Europe, the Middle East and Nordic countries.',
-      email: 'cashahidraza@gmail.com',
-      telephone: '+917875796110',
+      '@type': 'Attorney',
+      '@id': `${siteBase}/#attorney`,
+      name: 'Scott T. Okamoto',
+      jobTitle: 'Real Estate Attorney',
+      description: 'Law Office of Scott T. Okamoto — real estate law practice in San Francisco, California, focused on transactions and property disputes.',
       url: siteBase,
-      sameAs: [
-        'https://linkedin.com/in/shahidrazakhan',
-        'https://www.instagram.com/ca_shahid_raza_khan',
-      ],
-      memberOf: {
-        '@type': 'Organization',
-        name: 'Institute of Chartered Accountants of India',
-        alternateName: 'ICAI',
+      email: 'scott@scottokamotolaw.com',
+      telephone: '+1-415-766-5871',
+      faxNumber: '+1-415-931-2216',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '1832 Buchanan Street, Suite 202',
+        addressLocality: 'San Francisco',
+        addressRegion: 'CA',
+        postalCode: '94115',
+        addressCountry: 'US',
       },
-      worksFor: { '@id': `${siteBase}/#business` },
+      areaServed: [
+        { '@type': 'City', name: 'San Francisco' },
+        { '@type': 'AdministrativeArea', name: 'California' },
+      ],
     },
     {
       '@type': ['ProfessionalService', 'LocalBusiness'],
       '@id': `${siteBase}/#business`,
-      name: 'Shahid Raza Khan & Co, Chartered Accountants',
-      description: 'Audit & Assurance, Regulatory Compliance and Financial Advisory for Amravati and Vidarbha businesses. International Knowledge. Local Care.',
+      name: 'Law Office of Scott T. Okamoto',
+      description: 'Real estate law in San Francisco: transactions, purchase and sale disputes, boundary and neighbor disputes, co-ownership, landlord–tenant matters.',
       url: siteBase,
-      email: 'cashahidraza@gmail.com',
-      telephone: '+917875796110',
-      priceRange: '₹₹',
-      founder: { '@id': `${siteBase}/#person` },
+      email: 'scott@scottokamotolaw.com',
+      telephone: '+1-415-766-5871',
+      faxNumber: '+1-415-931-2216',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Shop No 101, First Floor, Beside Indane Gas Pump, Dharam Kata, Walgaon Road',
-        addressLocality: 'Amravati',
-        addressRegion: 'Maharashtra',
-        postalCode: '444601',
-        addressCountry: 'IN',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: 20.9374, longitude: 77.7796 },
-      openingHoursSpecification: {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
-        opens: '10:00',
-        closes: '19:00',
+        streetAddress: '1832 Buchanan Street, Suite 202',
+        addressLocality: 'San Francisco',
+        addressRegion: 'CA',
+        postalCode: '94115',
+        addressCountry: 'US',
       },
       areaServed: [
-        { '@type': 'City', name: 'Amravati' },
-        { '@type': 'AdministrativeArea', name: 'Vidarbha' },
-        { '@type': 'Country', name: 'India' },
+        { '@type': 'City', name: 'San Francisco' },
+        { '@type': 'AdministrativeArea', name: 'California' },
       ],
-      serviceType: ['Audit & Assurance', 'Regulatory Compliance', 'Financial Advisory'],
-      sameAs: [
-        'https://linkedin.com/in/shahidrazakhan',
-        'https://www.instagram.com/ca_shahid_raza_khan',
+      serviceType: [
+        'Real Estate Transactions',
+        'Real Estate Disputes',
+        'Boundary & Neighbor Disputes',
+        'Co-Ownership Disputes',
+        'Landlord–Tenant Matters',
+        'Purchase & Sale Disputes',
       ],
     },
   ],
@@ -107,8 +103,8 @@ const schema = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(ogImage, Astro.site).href} />
-    <meta property="og:locale" content="en_IN" />
-    <meta property="og:site_name" content="Shahid Raza Khan & Co, Chartered Accountants" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Scott Okamoto Law" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
@@ -116,10 +112,10 @@ const schema = {
     <meta name="twitter:image" content={new URL(ogImage, Astro.site).href} />
 
     <meta name="robots" content="index, follow" />
-    <meta name="author" content="CA Shahid Raza Khan" />
-    <meta name="keywords" content="CA Shahid Raza Khan, Chartered Accountant Amravati, EY auditor, audit assurance Vidarbha, RERA compliance, financial advisory Amravati, ICAI" />
-    <meta name="geo.region" content="IN-MH" />
-    <meta name="geo.placename" content="Amravati" />
+    <meta name="author" content="Scott Okamoto Law" />
+    <meta name="keywords" content="Scott Okamoto, Scott Okamoto Law, real estate attorney San Francisco, real estate lawyer San Francisco, San Francisco real estate law, real estate disputes, property disputes, real estate transactions" />
+    <meta name="geo.region" content="US-CA" />
+    <meta name="geo.placename" content="San Francisco" />
 
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </head>

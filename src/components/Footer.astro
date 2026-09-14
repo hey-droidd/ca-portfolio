@@ -1,28 +1,32 @@
 ---
-/**
- * FOOTER — primary-indigo background.
- * Stripe footer-light structure: 64px 24px padding, 4–6 link columns, legal row.
- * Tokens: indigo/brass — no Stripe blue anywhere.
- */
 const year = new Date().getFullYear();
 
 const navCols = [
   {
-    heading: 'Services',
+    heading: 'Practice Areas',
     links: [
-      { label: 'Audit & Assurance',     href: '#services' },
-      { label: 'Regulatory Compliance', href: '#services' },
-      { label: 'Financial Advisory',    href: '#services' },
+      { label: 'Transactions', href: '#practice-areas' },
+      { label: 'Real Estate Disputes', href: '#practice-areas' },
+      { label: 'Boundary & Neighbor', href: '#practice-areas' },
+      { label: 'Co-Ownership', href: '#practice-areas' },
+      { label: 'Landlord–Tenant', href: '#practice-areas' },
     ],
   },
   {
     heading: 'Firm',
     links: [
-      { label: 'About',       href: '#about' },
-      { label: 'Industries',  href: '#industries' },
-      { label: 'Recognition', href: '#recognition' },
-      { label: 'FAQ',         href: '#faq' },
-      { label: 'Contact',     href: '#contact' },
+      { label: 'About', href: '#about' },
+      { label: 'Approach', href: '#approach' },
+      { label: 'Who Scott Represents', href: '#represented' },
+      { label: 'FAQ', href: '#faq' },
+      { label: 'Contact', href: '#contact' },
+    ],
+  },
+  {
+    heading: 'Legal',
+    links: [
+      { label: 'Privacy', href: '#footer' },
+      { label: 'Legal Disclaimer', href: '#faq' },
     ],
   },
 ];
@@ -35,33 +39,20 @@ const navCols = [
 
       <!-- Brand col -->
       <div class="footer-brand-col">
-        <a href="#home" class="footer-brand" aria-label="Shahid Raza Khan & Co — go to top">
-          <span class="footer-badge" aria-hidden="true">SRK</span>
-          <span class="footer-brand-name">Shahid Raza Khan &amp; Co</span>
+        <a href="#home" class="footer-brand" aria-label="Scott Okamoto Law — go to top">
+          <span class="footer-badge" aria-hidden="true">SO</span>
+          <span class="footer-brand-name">Scott Okamoto Law</span>
         </a>
         <p class="footer-tagline">
-          International Knowledge. Local Care.<br />
-          Chartered Accountants, Amravati.
+          Real Estate Law · San Francisco.
         </p>
         <p class="footer-address">
-          Shop No 101, First Floor, Beside Indane Gas Pump,<br />
-          Dharam Kata, Walgaon Road, Amravati 444601 (M.S.)
+          Law Office of Scott T. Okamoto<br />
+          1832 Buchanan Street, Suite 202,<br />
+          San Francisco, CA 94115<br />
+          <a href="tel:+14157665871" class="footer-link footer-mono">415-766-5871</a><br />
+          <a href="mailto:scott@scottokamotolaw.com" class="footer-link footer-mono">scott@scottokamotolaw.com</a>
         </p>
-
-        <div class="footer-social" aria-label="Social links">
-          <a href="https://wa.me/918087128040" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="footer-social-icon">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-          </a>
-          <a href="mailto:cashahidraza@gmail.com" aria-label="Email" class="footer-social-icon">
-            <svg width="16" height="12" viewBox="0 0 22 17" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="0.75" y="0.75" width="20.5" height="15.5" rx="2"/><path d="M1 2l10 8 10-8" stroke-linecap="round"/></svg>
-          </a>
-          <a href="https://linkedin.com/in/shahidrazakhan" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="footer-social-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
-          </a>
-          <a href="https://www.instagram.com/ca_shahid_raza_khan" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="footer-social-icon">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/></svg>
-          </a>
-        </div>
       </div>
 
       <!-- Nav cols -->
@@ -76,12 +67,11 @@ const navCols = [
         </div>
       ))}
 
-      <!-- Direct contact col removed -->
     </div>
 
-    <!-- Stripe footer-light: legal row -->
     <div class="footer-bottom">
-      <p class="footer-legal">© {year} Shahid Raza Khan &amp; Co, Chartered Accountants. All rights reserved.</p>
+      <p class="footer-legal">© {year} Scott Okamoto Law. All rights reserved.</p>
+      <p class="footer-legal footer-disclaimer">Informational website — not legal advice. No attorney–client relationship is created by using this site.</p>
     </div>
   </div>
 </footer>
@@ -89,18 +79,16 @@ const navCols = [
 <style>
   .footer { background: var(--color-primary-indigo); }
 
-  /* Stripe footer-light: 64px 24px padding */
-  .footer-body { padding-top: var(--space-huge); } /* 64px */
+  .footer-body { padding-top: var(--space-huge); }
 
   .footer-top {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: var(--space-xxl); /* 32px — Stripe xxl */
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--space-xxl);
     padding-bottom: var(--space-xxl);
     border-bottom: 1px solid rgba(255,255,255,0.10);
   }
 
-  /* Brand */
   .footer-brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 14px; }
   .footer-badge {
     width: 32px; height: 32px;
@@ -120,31 +108,18 @@ const navCols = [
   }
   .footer-address { font-size: var(--text-caption); line-height: 1.6; color: var(--color-on-dark-faint); margin: 0 0 18px; }
 
-  .footer-social { display: flex; gap: 8px; }
-  .footer-social-icon {
-    width: 32px; height: 32px;
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: var(--radius-xs);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--color-on-dark-muted);
-    transition: border-color 150ms ease, color 150ms ease;
-  }
-  .footer-social-icon:hover { border-color: var(--color-accent-brass-lt); color: var(--color-accent-brass-lt); }
-
-  /* Stripe footer link columns — label treatment from .label-text */
   .footer-col-heading { color: var(--color-on-dark-faint); margin: 0 0 14px; }
   .footer-link-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
   .footer-link { font-size: 13px; color: var(--color-on-dark-muted); text-decoration: none; transition: color 150ms ease; }
   .footer-link:hover { color: var(--color-accent-brass-lt); }
-  .footer-mono { font-family: var(--font-mono); font-size: var(--text-caption); overflow-wrap: break-word; }
 
-  /* Stripe footer-light legal row: caption size */
   .footer-bottom {
-    display: flex; align-items: center; justify-content: space-between;
+    display: flex; align-items: flex-start; justify-content: space-between;
     gap: 12px; flex-wrap: wrap;
     padding: 20px 0;
   }
   .footer-legal { font-size: var(--text-caption); color: var(--color-on-dark-faint); margin: 0; }
+  .footer-disclaimer { max-width: 52ch; }
 
   @media (max-width: 900px) {
     .footer-top { grid-template-columns: 1fr 1fr; }

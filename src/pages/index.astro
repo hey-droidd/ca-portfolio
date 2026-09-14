@@ -1,10 +1,11 @@
 ---
 /**
- * Page assembly — Indigo/Brass rebuild
+ * Page assembly — Indigo/Brass rhythm, Scott Okamoto Law
  *
  * Background rhythm (no two consecutive sections share bg color or structure):
  *   Hero        → white
  *   About       → primary-indigo  (dark)
+ *   Approach    → white
  *   Services    → neutral-50    (warm off-white)
  *   Industries  → white
  *   Recognition → primary-indigo  (dark)
@@ -16,6 +17,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
+import Approach from '../components/Approach.astro';
 import Services from '../components/Services.astro';
 import Industries from '../components/Industries.astro';
 import Recognition from '../components/Recognition.astro';
@@ -30,6 +32,7 @@ import Footer from '../components/Footer.astro';
   <main id="main-content">
     <Hero />
     <About />
+    <Approach />
     <Services />
     <Industries />
     <Recognition />
