@@ -1,0 +1,19 @@
+---
+/**
+ * EXAMPLE custom section — copy to CustomSection.astro (remove the
+ * `.example` suffix) and import it in src/pages/index.astro only when
+ * a prospect needs something the shared system does not cover.
+ * The common 80–90% stays in website.json.
+ */
+interface Props {
+  title?: string;
+  body?: string;
+}
+
+const { title = 'Custom section', body = 'Prospect-specific content goes here.' } = Astro.props;
+---
+
+<section class="wrap section-pad" aria-label={title} data-mask-root>
+  <h2 class="sec-title"><span class="mask"><span>{title}</span></span></h2>
+  <p class="lede">{body}</p>
+</section>

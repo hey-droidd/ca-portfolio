@@ -1,0 +1,72 @@
+---
+/**
+ * Credibility as story, not dashboard: an oversized years anchor,
+ * a short positioning line, and Previously / Qualified columns.
+ * Figures tick once via count-up; nothing sits in a stat card.
+ */
+import type { WebsiteConfig } from '../../lib/design2/types';
+
+interface Props {
+  trust: WebsiteConfig['content']['trust'];
+}
+
+const { trust } = Astro.props;
+---
+
+<section class="trust" aria-label="Professional credibility" data-mask-root>
+  <div class="wrap trust-grid">
+    <div class="anchor">
+      <p class="statement">{trust.statement}</p>
+      <dl class="figures">
+        {trust.stats.map((s) => (
+          <div class="fig">
+            <dt class="tnum"><span data-countup={s.target} data-suffix={s.suffix}>{s.figure}</span></dt>
+            <dd>{s.label}</dd>
+          </div>
+        ))}
+      </dl>
+      <ul class="points">
+        {trust.items.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </div>
+    <div class="record">
+      <div class="col">
+        <h3>Previously</h3>
+        <ul>
+          {trust.previously.map((p) => (
+            <li>{p}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="col">
+        <h3>Qualified</h3>
+        <ul>
+          {trust.qualified.map((q) => (
+            <li>{q}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .trust { border-top: 1px solid var(--color-line); padding: 88px 0; }
+  .trust-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: start; }
+  .statement { margin: 0; font-family: var(--font-display); font-size: clamp(22px, 2.8vw, 32px); font-weight: 600; letter-spacing: -0.015em; line-height: 1.3; color: var(--color-ink); max-width: 26ch; }
+  .figures { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 48px; margin: 36px 0 0; padding: 28px 0; border-block: 1px solid var(--color-ink); }
+  .fig dt { font-family: var(--font-display); font-size: clamp(44px, 5vw, 64px); font-weight: 700; letter-spacing: -0.02em; line-height: 1; color: var(--color-ink); font-variant-numeric: tabular-nums; }
+  .fig dd { margin: 10px 0 0; font-size: 13px; line-height: 1.55; color: var(--color-muted); max-width: 15ch; }
+  .points { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 10px; }
+  .points li { position: relative; padding-left: 22px; font-size: 14.5px; color: var(--color-graphite); }
+  .points li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 11px; height: 1.6px; background: var(--color-bronze); }
+  .record { border-top: 2px solid var(--color-ink); padding-top: 8px; }
+  .record .col { padding: 22px 0; border-bottom: 1px solid var(--color-line); }
+  .record h3 { margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-muted); }
+  .record ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .record ul li { font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--color-ink); }
+  @media (max-width: 900px) { .trust-grid { grid-template-columns: 1fr; gap: 52px; } .trust { padding: 64px 0; } }
+  @media (max-width: 560px) { .figures { grid-template-columns: 1fr; gap: 24px; } }
+</style>

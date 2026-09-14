@@ -1,0 +1,150 @@
+---
+import type { Business } from '../../lib/design2/types';
+
+interface Props {
+  business: Business;
+}
+
+const { business } = Astro.props;
+
+const links = [
+  { href: '#expertise', label: 'Expertise', section: 'expertise' },
+  { href: '#approach', label: 'Approach', section: 'approach' },
+  { href: '#experience', label: 'Experience', section: 'experience' },
+  { href: '#testimonials', label: 'Clients', section: 'testimonials' },
+  { href: '#faq', label: 'FAQ', section: 'faq' },
+];
+---
+
+<div class="sentinel" id="top-sentinel" aria-hidden="true"></div>
+<header class="site-head" id="site-head">
+  <div class="wrap">
+    <div class="pill">
+      <a href="#top" class="brand" aria-label={`${business.name}, back to top`}>
+        <span class="brand-mark" aria-hidden="true">{business.name.split(' ').map((w) => w[0]).slice(0, 2).join('')}</span>
+        <span class="brand-text">
+          <span class="brand-name">{business.name}</span>
+          <span class="brand-sub">{business.title}, {business.location}</span>
+        </span>
+      </a>
+      <nav class="desk" aria-label="Primary">
+        <ul>
+          {links.map((l) => (
+            <li><a href={l.href} data-section={l.section}>{l.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+      <div class="head-actions">
+        <a class="btn btn-bronze head-cta" href={business.contactHref}>Start a conversation</a>
+        <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile" id="mobile-menu" aria-label="Mobile" hidden>
+      <ul>
+        {links.map((l) => (
+          <li><a href={l.href}>{l.label}</a></li>
+        ))}
+        <li><a class="btn btn-bronze" href={business.contactHref}>Start a conversation</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const head = document.getElementById('site-head');
+  const sentinel = document.getElementById('top-sentinel');
+  if (head && sentinel && 'IntersectionObserver' in window) {
+    new IntersectionObserver(([e]) => head.classList.toggle('scrolled', !e.isIntersecting), {}).observe(sentinel);
+  }
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    const open = menu?.hidden === false;
+    if (menu) menu.hidden = open;
+    btn?.setAttribute('aria-expanded', String(!open));
+    btn?.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
+  });
+  menu?.querySelectorAll('a').forEach((a) =>
+    a.addEventListener('click', () => {
+      if (menu) menu.hidden = true;
+      btn?.setAttribute('aria-expanded', 'false');
+    })
+  );
+
+  // Active-section highlight: the nav marks where the reader is.
+  const navLinks = Array.from(document.querySelectorAll('.desk a[data-section]'));
+  const setActive = (id: string | null) => {
+    navLinks.forEach((a) => {
+      const on = a.getAttribute('data-section') === id;
+      a.classList.toggle('active', on);
+      if (on) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
+    });
+  };
+  if ('IntersectionObserver' in window) {
+    const sio = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) setActive(e.target.id || null);
+        }
+      },
+      { rootMargin: '-40% 0px -55% 0px' }
+    );
+    ['expertise', 'approach', 'experience', 'testimonials', 'faq'].forEach((id) => {
+      const s = document.getElementById(id);
+      if (s) sio.observe(s);
+    });
+  }
+</script>
+
+<style>
+  .sentinel { position: absolute; top: 0; height: 2px; width: 2px; }
+  .site-head { position: sticky; top: 14px; z-index: 50; }
+  .pill {
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    padding: 10px 10px 10px 12px;
+    background: rgba(252, 250, 247, 0.82);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    box-shadow: 0 10px 32px rgba(32, 32, 30, 0.08);
+    transition: box-shadow 240ms ease;
+  }
+  .site-head.scrolled .pill { box-shadow: 0 14px 40px rgba(32, 32, 30, 0.14); }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; padding-left: 6px; }
+  .brand-mark {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 38px; height: 38px; border-radius: 50%;
+    background: var(--color-bronze); color: #fcfaf7;
+    font-family: var(--font-display); font-size: 14px; font-weight: 700;
+  }
+  .brand-text { display: flex; flex-direction: column; line-height: 1.3; }
+  .brand-name { font-family: var(--font-display); font-size: 16.5px; font-weight: 700; color: var(--color-ink); letter-spacing: -0.01em; }
+  .brand-sub { font-size: 11.5px; color: var(--color-muted); }
+  .desk ul { display: flex; gap: 6px; list-style: none; margin: 0; padding: 0; }
+  .desk a {
+    position: relative; font-size: 14px; font-weight: 500;
+    color: var(--color-graphite); text-decoration: none;
+    padding: 10px 15px; border-radius: 999px;
+    transition: background 180ms ease, color 180ms ease;
+  }
+  .desk a:hover { color: var(--color-ink); background: rgba(185, 176, 163, 0.22); }
+  .desk a.active { color: var(--color-bronze-deep); background: rgba(113, 63, 70, 0.1); }
+  .head-actions { display: flex; align-items: center; gap: 12px; }
+  .head-cta { padding: 13px 24px; min-height: 46px; }
+  .menu-btn { display: none; flex-direction: column; gap: 6px; background: none; border: none; padding: 12px 14px 12px 8px; cursor: pointer; }
+  .menu-btn span { display: block; width: 22px; height: 2px; background: var(--color-ink); border-radius: 2px; }
+  .mobile {
+    margin-top: 10px; background: var(--color-canvas);
+    border: 1px solid var(--color-line); border-radius: 26px;
+    box-shadow: 0 18px 48px rgba(32, 32, 30, 0.12);
+  }
+  .mobile[hidden] { display: none; }
+  .mobile ul { list-style: none; margin: 0; padding: 14px 24px 24px; display: grid; gap: 2px; }
+  .mobile ul a:not(.btn) { display: block; padding: 13px 0; font-family: var(--font-display); font-size: 20px; font-weight: 600; color: var(--color-ink); text-decoration: none; border-bottom: 1px solid var(--color-line); }
+  .mobile .btn { margin-top: 16px; justify-content: center; }
+  @media (max-width: 900px) { .desk, .head-cta { display: none; } .menu-btn { display: inline-flex; } }
+</style>

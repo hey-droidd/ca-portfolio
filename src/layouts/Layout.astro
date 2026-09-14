@@ -2,94 +2,37 @@
 import '../styles/global.css';
 
 interface Props {
-  title?: string;
-  description?: string;
-  ogImage?: string;
+  title: string;
+  description: string;
+  businessName: string;
   canonicalURL?: string;
+  ogImage?: string;
+  schema?: Record<string, unknown>;
 }
 
 const {
-  title = 'Scott Okamoto Law | Real Estate Attorney · San Francisco',
-  description = 'Scott Okamoto Law — practical counsel for complex real estate matters in San Francisco: transactions, purchase and sale disputes, boundary and neighbor disputes, co-ownership, and landlord–tenant matters.',
+  title,
+  description,
+  businessName,
   ogImage = '/og-image.png',
-  canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
+  schema,
 } = Astro.props;
 
-const siteBase = Astro.site?.href.replace(/\/$/, '') ?? 'https://scottokamotolaw.com';
-
-const schema = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'Attorney',
-      '@id': `${siteBase}/#attorney`,
-      name: 'Scott T. Okamoto',
-      jobTitle: 'Real Estate Attorney',
-      description: 'Law Office of Scott T. Okamoto — real estate law practice in San Francisco, California, focused on transactions and property disputes.',
-      url: siteBase,
-      email: 'scott@scottokamotolaw.com',
-      telephone: '+1-415-766-5871',
-      faxNumber: '+1-415-931-2216',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: '1832 Buchanan Street, Suite 202',
-        addressLocality: 'San Francisco',
-        addressRegion: 'CA',
-        postalCode: '94115',
-        addressCountry: 'US',
-      },
-      areaServed: [
-        { '@type': 'City', name: 'San Francisco' },
-        { '@type': 'AdministrativeArea', name: 'California' },
-      ],
-    },
-    {
-      '@type': ['ProfessionalService', 'LocalBusiness'],
-      '@id': `${siteBase}/#business`,
-      name: 'Law Office of Scott T. Okamoto',
-      description: 'Real estate law in San Francisco: transactions, purchase and sale disputes, boundary and neighbor disputes, co-ownership, landlord–tenant matters.',
-      url: siteBase,
-      email: 'scott@scottokamotolaw.com',
-      telephone: '+1-415-766-5871',
-      faxNumber: '+1-415-931-2216',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: '1832 Buchanan Street, Suite 202',
-        addressLocality: 'San Francisco',
-        addressRegion: 'CA',
-        postalCode: '94115',
-        addressCountry: 'US',
-      },
-      areaServed: [
-        { '@type': 'City', name: 'San Francisco' },
-        { '@type': 'AdministrativeArea', name: 'California' },
-      ],
-      serviceType: [
-        'Real Estate Transactions',
-        'Real Estate Disputes',
-        'Boundary & Neighbor Disputes',
-        'Co-Ownership Disputes',
-        'Landlord–Tenant Matters',
-        'Purchase & Sale Disputes',
-      ],
-    },
-  ],
-};
+const canonicalURL = Astro.props.canonicalURL ?? new URL(Astro.url.pathname, Astro.site).href;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
 
-    <!-- Newsreader (display) · Public Sans (body) · Space Mono (numerals) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500;1,6..72,600&family=Public+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -103,23 +46,112 @@ const schema = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(ogImage, Astro.site).href} />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:site_name" content="Scott Okamoto Law" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content={businessName} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(ogImage, Astro.site).href} />
 
     <meta name="robots" content="index, follow" />
-    <meta name="author" content="Scott Okamoto Law" />
-    <meta name="keywords" content="Scott Okamoto, Scott Okamoto Law, real estate attorney San Francisco, real estate lawyer San Francisco, San Francisco real estate law, real estate disputes, property disputes, real estate transactions" />
-    <meta name="geo.region" content="US-CA" />
-    <meta name="geo.placename" content="San Francisco" />
+    <meta name="author" content={businessName} />
 
-    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    {schema && <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />}
   </head>
   <body>
+    <div class="grain" aria-hidden="true"></div>
     <slot />
+    <script>
+      import Lenis from 'lenis';
+
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let lenis: Lenis | null = null;
+
+      if (!reduceMotion && 'requestAnimationFrame' in window) {
+        try {
+          lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+          const raf = (time: number) => {
+            lenis?.raf(time);
+            requestAnimationFrame(raf);
+          };
+          requestAnimationFrame(raf);
+        } catch {
+          lenis = null;
+        }
+      }
+
+      // In-page anchors glide via Lenis; native jump otherwise.
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener('click', (e) => {
+          const id = a.getAttribute('href');
+          if (!id || id.length < 2) return;
+          const target = document.querySelector(id);
+          if (!target || !lenis) return;
+          e.preventDefault();
+          lenis.scrollTo(target as HTMLElement, { offset: -72 });
+        });
+      });
+
+      // Masked reveals fire once per section.
+      const masked = document.querySelectorAll('[data-mask-root]');
+      const showAll = () => masked.forEach((el) => el.classList.add('in'));
+      if (reduceMotion || !('IntersectionObserver' in window)) {
+        showAll();
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                e.target.classList.add('in');
+                io.unobserve(e.target);
+              }
+            }
+          },
+          { threshold: 0.2, rootMargin: '0px 0px -8% 0px' }
+        );
+        masked.forEach((el) => io.observe(el));
+      }
+
+      // Count-up numerals: tabular figures tick to their target once visible.
+      const numerals = document.querySelectorAll<HTMLElement>('[data-countup]');
+      const renderNumeral = (el: HTMLElement, value: number) => {
+        const decimals = Number(el.dataset.decimals ?? 0);
+        const prefix = el.dataset.prefix ?? '';
+        const suffix = el.dataset.suffix ?? '';
+        el.textContent = `${prefix}${value.toFixed(decimals)}${suffix}`;
+      };
+      const runCountup = (el: HTMLElement) => {
+        const target = Number(el.dataset.countup ?? 0);
+        if (reduceMotion) {
+          renderNumeral(el, target);
+          return;
+        }
+        const duration = 1400;
+        const start = performance.now();
+        const tick = (now: number) => {
+          const p = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - p, 4);
+          renderNumeral(el, target * eased);
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      };
+      if (reduceMotion || !('IntersectionObserver' in window)) {
+        numerals.forEach(runCountup);
+      } else {
+        const nio = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                runCountup(e.target as HTMLElement);
+                nio.unobserve(e.target);
+              }
+            }
+          },
+          { threshold: 0.5 }
+        );
+        numerals.forEach((el) => nio.observe(el));
+      }
+    </script>
   </body>
 </html>

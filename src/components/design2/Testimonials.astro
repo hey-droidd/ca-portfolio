@@ -1,0 +1,156 @@
+---
+/**
+ * Client perspective: auto-scrolling quote carousel with snap,
+ * dots, and arrows. Pauses on hover, focus, or manual scrolling;
+ * static (swipeable) under reduced motion.
+ */
+import Icon from './Icon.astro';
+import type { WebsiteConfig } from '../../lib/design2/types';
+
+interface Props {
+  testimonials: WebsiteConfig['content']['testimonials'];
+}
+
+const { testimonials } = Astro.props;
+const quotes = [testimonials.featured, ...testimonials.more];
+---
+
+<section class="voices section-pad" id="testimonials" aria-label="Client perspective" data-mask-root>
+  <div class="wrap">
+    <h2 class="sec-title"><span class="mask"><span>{testimonials.heading}</span></span></h2>
+    <p class="lede">{testimonials.lede}</p>
+
+    <div class="carousel" id="quote-carousel">
+      <span class="stage-mark" aria-hidden="true"><Icon name="quote" size={40} /></span>
+      <div class="stage-row">
+        <div
+          class="track"
+          id="quote-track"
+          tabindex="0"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="Client testimonials"
+        >
+        {quotes.map((q, i) => (
+          <figure class="slide" role="group" aria-roledescription="slide" aria-label={`${i + 1} of ${quotes.length}`}>
+            <blockquote>
+              <p>“{q.quote}”</p>
+            </blockquote>
+            <figcaption>{q.name}, {q.role}</figcaption>
+          </figure>
+        ))}
+        </div>
+      </div>
+      <div class="controls">
+        <div class="dots" aria-label="Choose testimonial">
+          {quotes.map((q, i) => (
+            <button
+              class="dot"
+              aria-label={`Show quote ${i + 1} from ${q.name}`}
+              data-quote={i}
+            >
+              <span class="dot-fill" aria-hidden="true"></span>
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+    <p class="note">{testimonials.note}</p>
+  </div>
+</section>
+
+<script>
+  const track = document.getElementById('quote-track');
+  const dots = Array.from(document.querySelectorAll('#quote-carousel .dot'));
+  const carousel = document.getElementById('quote-carousel');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const count = dots.length;
+  let index = 0;
+  let timer = 0;
+  let resume = 0;
+
+  const slideWidth = () => track?.clientWidth ?? 1;
+
+  const go = (i: number, smooth = true) => {
+    if (!track) return;
+    index = (i + count) % count;
+    track.scrollTo({ left: index * slideWidth(), behavior: smooth && !reduce ? 'smooth' : 'auto' });
+    dots.forEach((d, di) => {
+      d.classList.toggle('on', di === index);
+      d.setAttribute('aria-current', di === index ? 'true' : 'false');
+    });
+  };
+
+  const pause = () => {
+    window.clearInterval(timer);
+    window.clearTimeout(resume);
+  };
+
+  const play = () => {
+    pause();
+    if (!reduce) timer = window.setInterval(() => go(index + 1), 2500);
+  };
+
+  const holdThenPlay = () => {
+    pause();
+    window.clearTimeout(resume);
+    resume = window.setTimeout(play, 10000);
+  };
+
+  dots.forEach((d, di) => d.addEventListener('click', () => {
+    go(di);
+    holdThenPlay();
+  }));
+  track?.addEventListener('scroll', () => {
+    const i = Math.round((track?.scrollLeft ?? 0) / slideWidth());
+    if (i !== index) {
+      index = Math.min(Math.max(i, 0), count - 1);
+      dots.forEach((d, di) => {
+        d.classList.toggle('on', di === index);
+        d.setAttribute('aria-current', di === index ? 'true' : 'false');
+      });
+    }
+  }, { passive: true });
+  track?.addEventListener('pointerdown', holdThenPlay);
+  track?.addEventListener('wheel', holdThenPlay, { passive: true });
+  carousel?.addEventListener('mouseenter', pause);
+  carousel?.addEventListener('mouseleave', play);
+  carousel?.addEventListener('focusin', pause);
+  carousel?.addEventListener('focusout', play);
+  dots[0]?.classList.add('on');
+  dots[0]?.setAttribute('aria-current', 'true');
+  play();
+</script>
+
+<style>
+  .voices { background: var(--color-stone); }
+  .sec-title { margin: 0; }
+  .lede { margin-top: 16px; }
+  .carousel { margin-top: 48px; max-width: 980px; }
+  .stage-mark { color: var(--color-bronze); opacity: 0.85; }
+  .stage-row { margin-top: 16px; }
+  .track {
+    display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    scroll-behavior: auto;
+  }
+  .track::-webkit-scrollbar { display: none; }
+  .track:focus-visible { outline: 2px solid var(--color-bronze); outline-offset: 6px; }
+  .slide { flex: 0 0 100%; scroll-snap-align: start; margin: 0; padding-right: 24px; }
+  .slide blockquote { margin: 0; }
+  .slide blockquote p {
+    font-family: var(--font-display); font-weight: 500;
+    font-size: clamp(24px, 3.2vw, 38px); line-height: 1.34; letter-spacing: -0.015em;
+    color: var(--color-ink); text-wrap: balance;
+  }
+  .slide figcaption { margin-top: 20px; font-size: 13.5px; font-weight: 600; color: var(--color-bronze-deep); }
+  .controls { display: flex; align-items: center; gap: 20px; margin-top: 30px; }
+  .dots { display: flex; gap: 10px; }
+  .dot {
+    width: 44px; height: 26px; padding: 0; background: none; border: none; cursor: pointer;
+    display: inline-flex; align-items: center;
+  }
+  .dot-fill { display: block; width: 100%; height: 3px; border-radius: 999px; background: rgba(32, 32, 30, 0.18); transition: background 200ms ease; }
+  .dot.on .dot-fill { background: var(--color-bronze-deep); }
+  .note { margin: 40px 0 0; font-size: 12.5px; color: var(--color-muted); }
+</style>

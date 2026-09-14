@@ -1,0 +1,43 @@
+---
+/** Why: personal statement on a warm stone wash with signature signoff. */
+import type { WebsiteConfig } from '../../lib/design2/types';
+
+interface Props {
+  why: WebsiteConfig['content']['why'];
+}
+
+const { why } = Astro.props;
+---
+
+<section class="why section-pad" aria-label="Why clients stay" data-mask-root>
+  <div class="wrap why-grid">
+    <div>
+      <h2 class="sec-title"><span class="mask"><span>{why.heading}</span></span></h2>
+      <p class="statement"><span class="mask mask-d1"><span>“{why.statement}”</span></span></p>
+      <p class="body">{why.body}</p>
+      <p class="signoff" aria-label={`Signed, ${why.signoff}`}>{why.signoff}</p>
+    </div>
+    <ul class="values">
+      {why.values.map((v) => (
+        <li>
+          <h3>{v.title}</h3>
+          <p>{v.body}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .why { background: var(--color-stone); }
+  .why-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: start; }
+  .why .sec-title { margin: 0; }
+  .statement { margin: 28px 0 0; font-family: var(--font-display); font-size: clamp(21px, 2.4vw, 27px); font-weight: 500; font-style: italic; line-height: 1.5; color: var(--color-ink); }
+  .body { margin: 22px 0 0; font-size: 16px; max-width: 52ch; }
+  .signoff { margin: 30px 0 0; font-family: var(--font-display); font-size: 30px; font-weight: 500; font-style: italic; color: var(--color-bronze-deep); transform: rotate(-2deg); display: inline-block; }
+  .values { list-style: none; margin: 8px 0 0; padding: 0; border-top: 1px solid var(--color-bronze); }
+  .values li { padding: 26px 0; border-bottom: 1px solid rgba(113, 63, 70, 0.3); }
+  .values h3 { margin: 0; font-family: var(--font-display); font-size: 19px; font-weight: 700; color: var(--color-ink); }
+  .values p { margin: 8px 0 0; font-size: 15px; }
+  @media (max-width: 900px) { .why-grid { grid-template-columns: 1fr; gap: 48px; } }
+</style>

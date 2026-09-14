@@ -1,0 +1,75 @@
+---
+/** FAQ accordion beside a compact conversion card. */
+import type { WebsiteConfig } from '../../lib/design2/types';
+
+interface Props {
+  faq: WebsiteConfig['content']['faq'];
+  business: WebsiteConfig['business'];
+}
+
+const { faq, business } = Astro.props;
+---
+
+<section class="section-pad" id="faq" aria-label="Frequently asked questions" data-mask-root>
+  <div class="wrap faq-grid">
+    <div>
+      <h2 class="sec-title"><span class="mask"><span>{faq.heading}</span></span></h2>
+      <p class="lede">{faq.lede}</p>
+      <div class="acc-list">
+        {faq.items.map((item, i) => (
+          <div class="acc-item" data-open={i === 0 ? 'true' : 'false'}>
+            <button class="acc-trigger" aria-expanded={i === 0 ? 'true' : 'false'}>
+              <span>{item.question}</span>
+              <span class="acc-icon" aria-hidden="true"></span>
+            </button>
+            <div class="acc-panel" role="region">
+              <div class="acc-panel-inner"><p>{item.answer}</p></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    <aside class="convert" aria-label="Still have questions">
+      <h3>{faq.sideTitle}</h3>
+      <p>{faq.sideBody}</p>
+      <a class="btn btn-bronze" href={business.contactHref}>Start a conversation</a>
+      <p class="direct">
+        <a href={`mailto:${business.email}`}>{business.email}</a>
+        <a href={`tel:${business.phone}`}>{business.phoneDisplay}</a>
+      </p>
+    </aside>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('#faq .acc-trigger').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.acc-item');
+      const scope = btn.closest('.acc-list');
+      const willOpen = item?.getAttribute('data-open') !== 'true';
+      scope?.querySelectorAll('.acc-item').forEach((el) => {
+        el.setAttribute('data-open', 'false');
+        el.querySelector('.acc-trigger')?.setAttribute('aria-expanded', 'false');
+      });
+      if (willOpen && item) {
+        item.setAttribute('data-open', 'true');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
+
+<style>
+  .faq-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 80px; align-items: start; }
+  .sec-title { margin: 0; max-width: 16ch; }
+  .lede { margin-top: 16px; }
+  .acc-list { margin-top: 40px; }
+  .convert { position: sticky; top: 110px; background: var(--color-ink); border-radius: 26px; padding: 40px 36px; color: #f3ede1; }
+  .convert h3 { margin: 0; font-family: var(--font-display); font-size: 23px; font-weight: 600; letter-spacing: -0.01em; }
+  .convert > p { margin: 12px 0 0; font-size: 14.5px; color: rgba(243, 237, 225, 0.72); }
+  .convert .btn { margin-top: 24px; }
+  .direct { display: grid; gap: 6px; margin: 22px 0 0 !important; padding-top: 20px; border-top: 1px solid rgba(243, 237, 225, 0.16); }
+  .direct a { font-size: 14.5px; font-weight: 600; color: #f3ede1; text-decoration: none; width: fit-content; }
+  .direct a:hover { color: #d9bbae; text-decoration: underline; text-underline-offset: 4px; }
+  @media (max-width: 960px) { .faq-grid { grid-template-columns: 1fr; gap: 56px; } .convert { position: static; } }
+</style>

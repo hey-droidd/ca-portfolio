@@ -1,43 +1,82 @@
 ---
 /**
- * Page assembly — Indigo/Brass rhythm, Scott Okamoto Law
- *
- * Background rhythm (no two consecutive sections share bg color or structure):
- *   Hero        → white
- *   About       → primary-indigo  (dark)
- *   Approach    → white
- *   Services    → neutral-50    (warm off-white)
- *   Industries  → white
- *   Recognition → primary-indigo  (dark)
- *   FAQ         → white
- *   Contact     → neutral-50    (warm off-white)
- *   Footer      → primary-indigo  (dark)
+ * DESIGN-2 entry — renders website.json `sections` in order.
+ * Reorder or hide sections via config; no page rewrite needed.
+ * Prospect-specific one-offs live in clients/<id>/custom/.
  */
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import About from '../components/About.astro';
-import Approach from '../components/Approach.astro';
-import Services from '../components/Services.astro';
-import Industries from '../components/Industries.astro';
-import Recognition from '../components/Recognition.astro';
-import FAQ from '../components/FAQ.astro';
-import Contact from '../components/Contact.astro';
-import Footer from '../components/Footer.astro';
+import SiteHeader from '../components/design2/SiteHeader.astro';
+import Hero from '../components/design2/Hero.astro';
+import Trust from '../components/design2/Trust.astro';
+import Expertise from '../components/design2/Expertise.astro';
+import WhyJane from '../components/design2/WhyJane.astro';
+import Approach from '../components/design2/Approach.astro';
+import Experience from '../components/design2/Experience.astro';
+import Industries from '../components/design2/Industries.astro';
+import Testimonials from '../components/design2/Testimonials.astro';
+import FaqProcess from '../components/design2/FaqProcess.astro';
+import ContactCta from '../components/design2/ContactCta.astro';
+import SiteFooter from '../components/design2/SiteFooter.astro';
+import type { WebsiteConfig } from '../lib/design2/types';
+import website from '../../clients/jane-doe/website.json';
+
+const config = website as unknown as WebsiteConfig;
+const { business, content, sections, seo } = config;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'AccountingService',
+      name: business.name,
+      founder: { '@type': 'Person', name: business.principal, jobTitle: business.title },
+      description: seo.description,
+      email: business.email,
+      telephone: business.phone,
+      areaServed: business.areasServed,
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: content.faq.items.map((f) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: { '@type': 'Answer', text: f.answer },
+      })),
+    },
+  ],
+};
 ---
 
-<Layout>
+<Layout title={seo.title} description={seo.description} businessName={business.name} schema={schema}>
   <a href="#main-content" class="skip-link">Skip to main content</a>
-  <Header />
+  <SiteHeader business={business} />
   <main id="main-content">
-    <Hero />
-    <About />
-    <Approach />
-    <Services />
-    <Industries />
-    <Recognition />
-    <FAQ />
-    <Contact />
+    {sections.map((section) => {
+      switch (section) {
+        case 'hero':
+          return <Hero hero={content.hero} />;
+        case 'trust':
+          return <Trust trust={content.trust} />;
+        case 'expertise':
+          return <Expertise expertise={content.expertise} contactHref={business.contactHref} />;
+        case 'why':
+          return <WhyJane why={content.why} />;
+        case 'approach':
+          return <Approach approach={content.approach} />;
+        case 'experience':
+          return <Experience experience={content.experience} />;
+        case 'industries':
+          return <Industries industries={content.industries} />;
+        case 'testimonials':
+          return <Testimonials testimonials={content.testimonials} />;
+        case 'faq':
+          return <FaqProcess faq={content.faq} business={business} />;
+        case 'contact':
+          return <ContactCta contact={content.contact} business={business} />;
+        default:
+          return null;
+      }
+    })}
   </main>
-  <Footer />
+  <SiteFooter footer={content.footer} business={business} />
 </Layout>

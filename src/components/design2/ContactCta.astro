@@ -1,0 +1,102 @@
+---
+/** Contact finale: large invitation with direct channels. No form. */
+import Icon from './Icon.astro';
+import type { WebsiteConfig } from '../../lib/design2/types';
+
+interface Props {
+  contact: WebsiteConfig['content']['contact'];
+  business: WebsiteConfig['business'];
+}
+
+const { contact, business } = Astro.props;
+
+const channelIcon = (label: string) => {
+  const l = label.toLowerCase();
+  if (l.includes('mail') || l.includes('email')) return 'mail';
+  if (l.includes('phone') || l.includes('call')) return 'phone';
+  return 'pin';
+};
+---
+
+<section class="section-pad contact wireframe-texture" id="contact" aria-label="Contact" data-mask-root>
+  <div class="wrap contact-grid">
+    <div class="contact-main">
+      <p class="kicker on-dark">{contact.kicker}</p>
+      <h2 class="sec-title on-dark"><span class="mask"><span>{contact.heading}</span></span></h2>
+      <p class="lede on-dark">{contact.lede}</p>
+      <p class="closing">“{contact.closing}”</p>
+      <ul class="assurances">
+        {contact.assurances.map((a) => (
+          <li>
+            <p class="assurance-title">{a.title}</p>
+            <p class="assurance-body">{a.body}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <aside class="contact-card" aria-label="Start a conversation">
+      <h3>Start a conversation</h3>
+      <ul class="channels">
+        {contact.channels.map((c) => (
+          <li>
+            <span class="ch-icon" aria-hidden="true"><Icon name={channelIcon(c.label) as 'mail' | 'phone' | 'pin'} size={17} /></span>
+            <span class="ch-text">
+              <span class="ch-label">{c.label}</span>
+              <a href={c.href}>{c.value}</a>
+            </span>
+          </li>
+        ))}
+      </ul>
+      <p class="hours">{contact.hours}</p>
+      <p class="areas">Serving {business.areasServed.join(', ')}.</p>
+      <div class="cta-row">
+        <a class="btn btn-bronze" data-magnetic href={`mailto:${business.email}?subject=${encodeURIComponent('Enquiry for ' + business.name)}`}>Start a conversation</a>
+        <a class="btn btn-ghost" href={`tel:${business.phone}`}>Call {business.phoneDisplay}</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .contact { position: relative; overflow: clip; background: var(--color-night); }
+  .contact-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 72px; align-items: start; position: relative; }
+  .contact .sec-title { margin: 0; }
+  .contact .lede { margin-top: 18px; }
+  .contact-card {
+    position: sticky; top: 110px;
+    border: 1px solid var(--color-line-night);
+    border-radius: 26px;
+    background: rgba(243, 237, 225, 0.04);
+    padding: 36px 32px;
+  }
+  .contact-card h3 { margin: 0 0 8px; font-family: var(--font-display); font-size: 23px; font-weight: 600; color: #f3ede1; }
+  .channels { list-style: none; margin: 24px 0 0; padding: 0; border-top: 1px solid var(--color-line-night); }
+  .channels li { display: flex; gap: 16px; align-items: flex-start; padding: 18px 0; border-bottom: 1px solid var(--color-line-night); }
+  .ch-icon {
+    flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;
+    width: 38px; height: 38px; border-radius: 50%;
+    border: 1px solid rgba(217, 187, 174, 0.5); color: #d9bbae;
+  }
+  .ch-text { display: flex; flex-direction: column; gap: 4px; }
+  .ch-label { font-size: 12.5px; font-weight: 600; color: rgba(243, 237, 225, 0.55); }
+  .channels a { font-family: var(--font-display); font-size: 20px; font-weight: 600; color: #f3ede1; text-decoration: none; width: fit-content; background-image: linear-gradient(#d9bbae, #d9bbae); background-size: 0% 1.5px; background-position: left calc(100% - 1px); background-repeat: no-repeat; padding-bottom: 3px; transition: background-size 280ms var(--ease-lux); }
+  .channels a:hover { background-size: 100% 1.5px; }
+  .hours, .areas { margin: 22px 0 0; font-size: 14px; color: rgba(243, 237, 225, 0.78); }
+  .areas { margin-top: 8px; }
+  .closing {
+    margin: 34px 0 0; padding-top: 30px; border-top: 1px solid var(--color-line-night);
+    font-family: var(--font-display); font-style: italic; font-weight: 500;
+    font-size: clamp(19px, 2.4vw, 24px); line-height: 1.55; color: #f3ede1; max-width: 44ch;
+  }
+  .assurances { list-style: none; margin: 34px 0 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--color-line-night); }
+  .assurances li { display: grid; grid-template-columns: 200px 1fr; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--color-line-night); align-items: baseline; }
+  .assurance-title { margin: 0; font-size: 14.5px; font-weight: 700; color: #f3ede1; }
+  .assurance-body { margin: 8px 0 0; font-size: 13.5px; line-height: 1.65; color: rgba(243, 237, 225, 0.7); }
+  .cta-row { display: grid; gap: 12px; margin-top: 28px; }
+  .cta-row .btn { justify-content: center; }
+  @media (max-width: 960px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    .contact-card { position: static; }
+    .assurances li { grid-template-columns: 1fr; gap: 4px; }
+  }
+</style>

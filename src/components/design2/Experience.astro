@@ -1,0 +1,65 @@
+---
+/** Experience: the single dark chapter. Timeline rows plus proof figures. */
+import type { WebsiteConfig } from '../../lib/design2/types';
+
+interface Props {
+  experience: WebsiteConfig['content']['experience'];
+}
+
+const { experience } = Astro.props;
+---
+
+<section class="night section-pad wireframe-texture" id="experience" aria-label="Professional experience" data-mask-root>
+  <div class="wrap night-wrap">
+    <p class="kicker on-dark">{experience.kicker}</p>
+    <h2 class="sec-title on-dark"><span class="mask"><span>{experience.heading}</span></span></h2>
+    <p class="lede on-dark">{experience.lede}</p>
+    <div class="exp-grid">
+      <ol class="roles">
+      {experience.roles.map((r) => (
+        <li>
+          <p class="period">{r.period}</p>
+          <div>
+            <h3>{r.role}</h3>
+            <p>{r.body}</p>
+          </div>
+        </li>
+      ))}
+      </ol>
+      <dl class="proof">
+        {experience.proof.map((p) => (
+          <div>
+            <dt class="tnum" data-countup={p.target} data-suffix={p.suffix}>{p.figure}</dt>
+            <dd>{p.label}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </div>
+</section>
+
+<style>
+  .night { position: relative; overflow: clip; background: var(--color-night); }
+  .night-wrap { position: relative; }
+  .night .sec-title { margin: 0; max-width: 20ch; }
+  .night .lede { margin-top: 16px; }
+  .roles { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--color-line-night); }
+  .roles li { display: grid; grid-template-columns: 220px 1fr; gap: 32px; padding: 30px 0; border-bottom: 1px solid var(--color-line-night); }
+  .period { margin: 0; font-size: 13px; font-weight: 600; color: #d9bbae; font-variant-numeric: tabular-nums; padding-top: 5px; }
+  .roles h3 { margin: 0; font-family: var(--font-display); font-size: 21px; font-weight: 600; color: #f3ede1; }
+  .roles p:last-child { margin: 10px 0 0; font-size: 15px; color: rgba(243, 237, 225, 0.7); max-width: 68ch; }
+  .exp-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 72px; margin-top: 56px; align-items: start; }
+  .proof { margin: 0; padding: 6px 0 0 48px; border-left: 1px solid var(--color-line-night); display: grid; gap: 36px; position: sticky; top: 110px; }
+  .proof > div { border-bottom: 1px solid var(--color-line-night); padding-bottom: 32px; }
+  .proof > div:last-child { border-bottom: none; padding-bottom: 0; }
+  .proof dt { font-family: var(--font-display); font-size: clamp(32px, 3.6vw, 46px); font-weight: 700; letter-spacing: -0.02em; color: #f3ede1; font-variant-numeric: tabular-nums; line-height: 1; }
+  .proof dd { margin: 10px 0 0; font-size: 13.5px; color: rgba(243, 237, 225, 0.78); max-width: 20ch; }
+  @media (max-width: 900px) {
+    .exp-grid { grid-template-columns: 1fr; gap: 48px; }
+    .proof { border-left: none; padding-left: 0; border-top: 1px solid var(--color-line-night); padding-top: 36px; position: static; }
+  }
+  @media (max-width: 767px) {
+    .roles li { grid-template-columns: 1fr; gap: 8px; }
+    .proof { flex-wrap: wrap; gap: 32px; }
+  }
+</style>

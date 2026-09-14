@@ -1,0 +1,19 @@
+{
+  "clientId": "jane-doe",
+  "businessName": "Doe & Associates",
+  "category": "chartered-accountant",
+  "location": "London",
+  "originalWebsite": "",
+  "source": "template-demo",
+  "outreachStatus": "not-contacted",
+  "selectedDesign": "design-2",
+  "designVersion": "1.0",
+  "personalizationVersion": "v1",
+  "firstContactedAt": "",
+  "lastContactedAt": "",
+  "followUps": [],
+  "notes": [
+    "Demo prospect for the design-2 template.",
+    "All figures, credentials, and statements are fictional."
+  ]
+}

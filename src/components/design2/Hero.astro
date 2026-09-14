@@ -1,0 +1,106 @@
+---
+/**
+ * Layered asymmetric hero: copy left, arch portrait right with a
+ * floating credential note, oversized backdrop word behind.
+ * Masked line reveals; portrait enters via clip-path.
+ */
+import type { WebsiteConfig } from '../../lib/design2/types';
+
+interface Props {
+  hero: WebsiteConfig['content']['hero'];
+}
+
+const { hero } = Astro.props;
+---
+
+<section class="hero wireframe-texture" id="top" aria-label="Introduction" data-mask-root>
+  <span class="backdrop" aria-hidden="true">{hero.backdropWord}</span>
+  <span class="glow" aria-hidden="true"></span>
+  <div class="wrap hero-grid">
+    <div class="copy">
+      <p class="kicker">{hero.kicker}</p>
+      <h1 class="hero-title">
+        <span class="mask"><span>{hero.headlineA}</span></span>
+        <span class="mask mask-d1"><span>{hero.headlineB}</span></span>
+      </h1>
+      <p class="sub">{hero.sub}</p>
+      <div class="cta-row">
+        <a class="btn btn-bronze" data-magnetic href={hero.primaryCta.href}>
+          {hero.primaryCta.label}
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="text-link" href={hero.secondaryCta.href}>{hero.secondaryCta.label}<span class="arr" aria-hidden="true">→</span></a>
+      </div>
+      <p class="locale">{hero.locationLine}</p>
+    </div>
+    <div class="visual">
+      <figure class="portrait">
+        <img class="clip-reveal" src={hero.portrait.src} alt={hero.portrait.alt} loading="eager" fetchpriority="high" width="480" height="600" />
+      </figure>
+      <aside class="float-card float-in" aria-label="Credentials">
+        <p class="float-title">{hero.credentialFloat.title}</p>
+        <p class="float-body">{hero.credentialFloat.body}</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero { position: relative; overflow: clip; padding: 72px 0 110px; }
+  .glow {
+    position: absolute; top: -180px; right: -120px; width: 560px; height: 560px;
+    background: radial-gradient(circle, rgba(113, 63, 70, 0.16) 0%, rgba(113, 63, 70, 0) 65%);
+    pointer-events: none;
+  }
+  .backdrop {
+    position: absolute; top: 24px; left: 50%; transform: translateX(-50%);
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(90px, 17vw, 250px); letter-spacing: -0.03em; line-height: 1;
+    color: var(--color-ink); opacity: 0.045; white-space: nowrap; pointer-events: none;
+  }
+  .hero-grid { position: relative; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: center; }
+  .hero-title { margin: 0; }
+  .sub { margin: 26px 0 0; font-size: 17.5px; line-height: 1.7; color: var(--color-graphite); max-width: 46ch; }
+  .cta-row { display: flex; align-items: center; gap: 26px; margin-top: 34px; flex-wrap: wrap; }
+  .locale { margin: 26px 0 0; font-size: 13.5px; font-weight: 500; color: var(--color-muted); }
+  .visual { position: relative; justify-self: end; width: min(100%, 420px); }
+  .portrait { margin: 0; }
+  .portrait img {
+    display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover;
+    border-radius: 210px 210px 26px 26px;
+    background: var(--color-stone);
+  }
+  .float-card {
+    position: absolute; left: -72px; bottom: 44px; max-width: 250px;
+    background: rgba(252, 250, 247, 0.88); backdrop-filter: blur(10px);
+    border: 1px solid rgba(113, 63, 70, 0.28); border-radius: 18px;
+    padding: 18px 20px; box-shadow: 0 18px 44px rgba(32, 32, 30, 0.14);
+  }
+  .float-title { margin: 0; font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--color-ink); }
+  .float-body { margin: 6px 0 0; font-size: 13px; line-height: 1.6; color: var(--color-graphite); }
+  @media (max-width: 960px) {
+    .hero { padding: 48px 0 80px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 56px; }
+    .visual { justify-self: start; width: min(100%, 380px); }
+    .float-card { left: auto; right: -10px; bottom: 30px; }
+  }
+  @media (max-width: 480px) { .float-card { right: 0; max-width: 220px; } }
+</style>
+
+<script>
+  // Magnetic pull on the primary CTA: subtle, pointer-only, motion-safe.
+  const cta = document.querySelector('[data-magnetic]');
+  const fine = window.matchMedia('(pointer: fine)').matches;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (cta instanceof HTMLElement && fine && !reduce) {
+    cta.addEventListener('mousemove', (e) => {
+      const r = cta.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width / 2) / r.width;
+      const y = (e.clientY - r.top - r.height / 2) / r.height;
+      cta.style.transform = `translate(${x * 8}px, ${y * 6}px)`;
+    });
+    cta.addEventListener('mouseleave', () => {
+      cta.style.transform = '';
+    });
+  }
+</script>

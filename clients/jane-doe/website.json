@@ -1,0 +1,409 @@
+{
+  "design": "design-2",
+  "templateVersion": "1.0",
+  "theme": {
+    "accent": "#8a6535",
+    "note": "Single bronze accent, locked across the page. Warm ivory canvas, deep charcoal chapters."
+  },
+  "business": {
+    "name": "Doe Advisory",
+    "principal": "Jane Doe",
+    "title": "Chartered Accountant",
+    "designation": "CA",
+    "currency": "GBP",
+    "qualifications": [
+      "FCA",
+      "ICAEW Member"
+    ],
+    "membershipNo": "ICAEW Reg. No. 000000",
+    "location": "London",
+    "areasServed": [
+      "London",
+      "Manchester",
+      "Remote across the UK"
+    ],
+    "email": "hello@example-advisory.co.uk",
+    "phone": "+442000000000",
+    "phoneDisplay": "+44 20 0000 0000",
+    "contactHref": "#contact"
+  },
+  "sections": [
+    "hero",
+    "trust",
+    "expertise",
+    "why",
+    "approach",
+    "experience",
+    "industries",
+    "testimonials",
+    "faq",
+    "contact"
+  ],
+  "content": {
+    "hero": {
+      "kicker": "Chartered Accountant in London",
+      "headlineA": "Clear financial decisions",
+      "headlineB": "for ambitious businesses.",
+      "sub": "Audit, tax, and advisory for growing firms, handled personally from first call to final filing.",
+      "primaryCta": {
+        "label": "Start a conversation",
+        "href": "#contact"
+      },
+      "secondaryCta": {
+        "label": "See expertise",
+        "href": "#expertise"
+      },
+      "locationLine": "Based in London, working across the UK",
+      "portrait": {
+        "src": "/clients/jane-doe/portrait.svg",
+        "alt": "Portrait placeholder for Doe Advisory"
+      },
+      "credentialFloat": {
+        "title": "Doe Advisory",
+        "body": "Fellow Chartered Accountant. Twelve years in audit and advisory."
+      },
+      "backdropWord": "Advisory",
+      "identityLeft": "Doe Advisory"
+    },
+    "trust": {
+      "statement": "A practice built for owners who want numbers they can act on.",
+      "items": [
+        "Audits signed personally",
+        "Fixed fees agreed upfront",
+        "Replies within two working days"
+      ],
+      "previously": [
+        "Manager, Example Audit Firm",
+        "Associate, Example CA Office"
+      ],
+      "qualified": [
+        "Fellow Chartered Accountant",
+        "ICAEW Member"
+      ],
+      "stats": [
+        {
+          "figure": "12+",
+          "target": 12,
+          "suffix": "+",
+          "label": "Years of professional practice"
+        },
+        {
+          "figure": "320+",
+          "target": 320,
+          "suffix": "+",
+          "label": "Businesses advised"
+        },
+        {
+          "figure": "4",
+          "target": 4,
+          "suffix": "",
+          "label": "Practice areas, one standard"
+        }
+      ]
+    },
+    "expertise": {
+      "kicker": "What Jane helps with",
+      "heading": "Four areas, handled personally.",
+      "lede": "Every engagement is scoped in writing and led by Jane herself. Select an area to start the conversation.",
+      "services": [
+        {
+          "id": "audit",
+          "index": "01",
+          "title": "Audit and Assurance",
+          "body": "Statutory audits and assurance reviews planned around your year end. Findings explained in plain language, with a management letter you can actually use.",
+          "points": [
+            "Statutory audit",
+            "Internal controls review",
+            "Due diligence support"
+          ]
+        },
+        {
+          "id": "tax",
+          "index": "02",
+          "title": "Tax and Compliance",
+          "body": "Self Assessment, VAT, and payroll taxes on a single compliance calendar. Returns, reconciliations, and HMRC correspondence tracked in one place.",
+          "points": [
+            "Self Assessment returns",
+            "VAT returns",
+            "PAYE and HMRC notices"
+          ]
+        },
+        {
+          "id": "advisory",
+          "index": "03",
+          "title": "Financial Advisory",
+          "body": "Monthly reports, cash flow reviews, and decision support for founders. Numbers prepared so you can act on them, not just file them.",
+          "points": [
+            "Management accounts",
+            "Cash flow review",
+            "Lender documentation"
+          ]
+        },
+        {
+          "id": "structuring",
+          "index": "04",
+          "title": "Business Structuring",
+          "body": "Entity selection, incorporation, and reorganisation at formation, growth, or succession. Set up correctly once, rather than fixed later.",
+          "points": [
+            "Company formation",
+            "Group structures",
+            "Succession groundwork"
+          ]
+        }
+      ]
+    },
+    "why": {
+      "heading": "Why owners stay with Jane.",
+      "statement": "Most accounting tells you what happened. Jane tells you what to do next.",
+      "body": "Doe Advisory works with a small number of businesses at a time, so every client gets the partner, not the pipeline. Calls are returned, drafts are walked through, and nothing is filed while a question is still open.",
+      "values": [
+        {
+          "title": "Direct access",
+          "body": "You speak with Jane on every matter. No hand offs, no juniors learning on your books."
+        },
+        {
+          "title": "Plain language",
+          "body": "Technical positions translated into decisions. If it cannot be explained simply, it is not finished."
+        },
+        {
+          "title": "Fixed fees",
+          "body": "Scope and fee agreed in writing before work begins. The invoice never contains surprises."
+        }
+      ],
+      "signoff": "Doe Advisory"
+    },
+    "approach": {
+      "heading": "A calm process, from first call to final record.",
+      "lede": "Four steps, followed on every engagement. You always know what happens next.",
+      "steps": [
+        {
+          "index": "01",
+          "title": "Introductory call",
+          "body": "Twenty minutes on your situation, your deadlines, and whether Jane is the right fit."
+        },
+        {
+          "index": "02",
+          "title": "Written scope",
+          "body": "A one page note covering deliverables, timelines, documents needed, and the fixed fee."
+        },
+        {
+          "index": "03",
+          "title": "Work in the open",
+          "body": "Evidence gathered, drafts shared, questions answered in plain language before anything is filed."
+        },
+        {
+          "index": "04",
+          "title": "Close with records",
+          "body": "Acknowledgements, workings, and a summary memo handed over, indexed and retrievable."
+        }
+      ]
+    },
+    "experience": {
+      "kicker": "Experience and proof",
+      "heading": "Twelve years across practice and industry.",
+      "lede": "Twelve years across practice and industry.",
+      "roles": [
+        {
+          "period": "2019 to present",
+          "role": "Founder, Doe Advisory",
+          "body": "Independent practice serving growing businesses across London and Manchester. Audits, retainers, and transaction support."
+        },
+        {
+          "period": "2015 to 2019",
+          "role": "Manager, Example Audit Firm",
+          "body": "Led statutory audit teams for mid size manufacturing and trading clients."
+        },
+        {
+          "period": "2012 to 2015",
+          "role": "Associate, Example CA Office",
+          "body": "Training contract and early practice across tax, audit, and compliance."
+        }
+      ],
+      "proof": [
+        {
+          "figure": "40+",
+          "target": 40,
+          "suffix": "+",
+          "label": "Audits signed each year "
+        },
+        {
+          "figure": "98%",
+          "target": 98,
+          "suffix": "%",
+          "label": "Filings completed before the deadline "
+        },
+        {
+          "figure": "6 yrs",
+          "target": 6,
+          "suffix": " yrs",
+          "label": "Average client relationship "
+        }
+      ]
+    },
+    "industries": {
+      "heading": "Familiar with your kind of business.",
+      "lede": "Sector experience across the firms Jane serves best.",
+      "groups": [
+        {
+          "title": "Manufacturing",
+          "body": "Stock audit support, capital allowances, and VAT filings for plant owners.",
+          "icon": "factory"
+        },
+        {
+          "title": "Trading and retail",
+          "body": "Inventory documentation, contractor reporting, and annual filings for distributors.",
+          "icon": "store"
+        },
+        {
+          "title": "Professional services",
+          "body": "Retainer compliance and partner reporting for firms and consultancies.",
+          "icon": "briefcase"
+        },
+        {
+          "title": "Startups",
+          "body": "Incorporation, investor ready books, and EMI scheme documentation.",
+          "icon": "rocket"
+        }
+      ]
+    },
+    "testimonials": {
+      "heading": "In clients' words.",
+      "lede": "What clients say about working with Jane.",
+      "featured": {
+        "quote": "Jane closed three years of overdue filings in six weeks, and explained every step.",
+        "name": "Sarah Mitchell",
+        "role": "Director, distribution firm"
+      },
+      "more": [
+        {
+          "quote": "Our audit finished a week early, with a letter we actually used.",
+          "name": "David Okafor",
+          "role": "Founder, manufacturing"
+        },
+        {
+          "quote": "Fixed fee, no surprises, and she picks up the phone.",
+          "name": "Priya Nair",
+          "role": "Partner, services firm"
+        }
+      ],
+      "note": "References from long-standing clients, shared with permission."
+    },
+    "faq": {
+      "heading": "Questions owners usually ask.",
+      "lede": "Short answers. Anything longer deserves a call.",
+      "items": [
+        {
+          "question": "How do your fees work?",
+          "answer": "Fixed fees agreed in writing before work begins, based on scope rather than hours. Retainers are available for year round compliance."
+        },
+        {
+          "question": "Will you handle my matter personally?",
+          "answer": "Yes. Every engagement is led personally from start to finish. If capacity ever requires support, it is disclosed before you agree to anything."
+        },
+        {
+          "question": "We are behind on filings. Can you help?",
+          "answer": "Usually yes. The first step is a review of what is outstanding and the exposure involved, then a catch up plan with timelines. Bring whatever records you have."
+        },
+        {
+          "question": "Do you work with businesses outside London?",
+          "answer": "Yes. Clients in Manchester are served in person on schedule, and remote clients across the UK through video calls and shared records."
+        },
+        {
+          "question": "What do you need from us to begin?",
+          "answer": "A twenty minute call, then access to your books and prior filings. The written scope lists everything else. Most engagements start within a week."
+        }
+      ],
+      "sideTitle": "Still have questions?",
+      "sideBody": "Send them directly. You will hear back within two working days."
+    },
+    "contact": {
+      "kicker": "Start here",
+      "heading": "Tell us about your next financial decision.",
+      "lede": "A few lines are enough. Replies within two working days.",
+      "channels": [
+        {
+          "label": "Email",
+          "value": "hello@example-advisory.co.uk",
+          "href": "mailto:hello@example-advisory.co.uk"
+        },
+        {
+          "label": "Phone",
+          "value": "+44 20 0000 0000",
+          "href": "tel:+442000000000"
+        },
+        {
+          "label": "Office",
+          "value": "12 Example Street, London",
+          "href": "#contact"
+        }
+      ],
+      "hours": "Monday to Friday, 9 to 5. Saturday by appointment.",
+      "closing": "Whether it is an approaching deadline, a notice you did not expect, or simply a year you want handled properly, the first step is a conversation. Bring whatever records you have. Doe Advisory will take it from there.",
+      "assurances": [
+        {
+          "title": "A reply, not a queue",
+          "body": "Every enquiry is answered personally within two working days."
+        },
+        {
+          "title": "Clarity before commitment",
+          "body": "A twenty minute call first. You will know the scope and the fixed fee before agreeing to anything."
+        },
+        {
+          "title": "One person throughout",
+          "body": "Jane leads your matter from first message to final record."
+        }
+      ]
+    },
+    "footer": {
+      "tagline": "Independent chartered accountancy for businesses that value clarity.",
+      "columns": [
+        {
+          "title": "Practice",
+          "links": [
+            {
+              "label": "Expertise",
+              "href": "#expertise"
+            },
+            {
+              "label": "Approach",
+              "href": "#approach"
+            },
+            {
+              "label": "Experience",
+              "href": "#experience"
+            },
+            {
+              "label": "Clients' words",
+              "href": "#testimonials"
+            }
+          ]
+        },
+        {
+          "title": "Sectors",
+          "links": [
+            {
+              "label": "Manufacturing",
+              "href": "#industries"
+            },
+            {
+              "label": "Trading and retail",
+              "href": "#industries"
+            },
+            {
+              "label": "Startups",
+              "href": "#industries"
+            }
+          ]
+        }
+      ],
+      "compliance": "General information only, not professional advice. Formal engagement terms apply before any work begins."
+    }
+  },
+  "seo": {
+    "title": "Doe Advisory, Chartered Accountants in London. Audit, Tax and Advisory",
+    "description": "Doe Advisory, London chartered accountancy: audit and assurance, tax and compliance, financial advisory, and business structuring."
+  },
+  "assets": {
+    "portrait": "/clients/jane-doe/portrait.svg"
+  }
+}
