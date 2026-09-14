@@ -102,9 +102,9 @@
       ]
     },
     "expertise": {
-      "kicker": "What Jane helps with",
+      "kicker": "Areas of expertise",
       "heading": "Four areas, handled personally.",
-      "lede": "Every engagement is scoped in writing and led by Jane herself. Select an area to start the conversation.",
+      "lede": "Every engagement is scoped in writing and led personally, start to finish. Select an area to start the conversation.",
       "services": [
         {
           "id": "audit",
@@ -153,7 +153,7 @@
       ]
     },
     "why": {
-      "heading": "Why owners stay with Jane.",
+      "heading": "Why owners stay.",
       "statement": "Most accounting tells you what happened. Jane tells you what to do next.",
       "body": "Doe Advisory works with a small number of businesses at a time, so every client gets the partner, not the pipeline. Calls are returned, drafts are walked through, and nothing is filed while a question is still open.",
       "values": [
@@ -242,7 +242,7 @@
     },
     "industries": {
       "heading": "Familiar with your kind of business.",
-      "lede": "Sector experience across the firms Jane serves best.",
+      "lede": "Sector experience across the firms served best.",
       "groups": [
         {
           "title": "Manufacturing",
@@ -350,7 +350,7 @@
         },
         {
           "title": "One person throughout",
-          "body": "Jane leads your matter from first message to final record."
+          "body": "Your matter is led personally from first message to final record."
         }
       ]
     },
